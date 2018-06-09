@@ -1,0 +1,46 @@
+CONTENT_TOPIC_GROUP_SQL: 
+    INSERT INTO content_topic_group_dim (ad_unit_nk, content_topic_group_id_string, platform_id)
+    SELECT distinct PublisherAdUnitID, PublisherContentTopic, PublisherPlatformID
+    FROM %s o
+    LEFT JOIN content_topic_group_dim c
+         ON PublisherPlatformID = platform_id AND
+            PublisherAdUnitID = ad_unit_nk AND
+            PublisherContentTopic = content_topic_group_id_string
+    WHERE platform_id is null AND
+          ad_unit_nk is null AND
+          content_topic_group_id_string is null AND
+          PublisherContentTopic is not null
+
+CONTENT_TOPIC_SELECT_SQL:
+    SELECT content_topic_group_id_string, content_topic_group_sid, platform_id
+    FROM content_topic_group_dim
+    WHERE content_topic_group_sid not in (
+          SELECT content_topic_group_sid
+          FROM content_topic_group_bridge)
+
+CONTENT_TOPIC_LOAD_SQL:
+    - CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_content_topics
+      (content_topic_group_sid int, platform_id varchar(255), content_topic int)
+    - TRUNCATE TABLE tmp_content_topics
+    - COPY INTO tmp_content_topics FROM '%(STAGED_DATA)s'
+      FILE_FORMAT = (
+          TYPE = CSV
+          FIELD_DELIMITER = ','
+          COMPRESSION = GZIP
+          SKIP_HEADER = 1
+          ERROR_ON_COLUMN_COUNT_MISMATCH = TRUE
+      )
+    - INSERT INTO content_topic_dim (platform_id, content_topic_nk, content_topic_name) 
+      SELECT DISTINCT platform_id, content_topic, 'UNKNOWN'
+        FROM tmp_content_topics tmp
+       WHERE NOT EXISTS (SELECT 1 FROM content_topic_dim ctd WHERE tmp.content_topic = ctd.content_topic_nk AND tmp.platform_id = ctd.platform_id)
+    - INSERT INTO content_topic_group_bridge (content_topic_group_sid, content_topic_sid )
+      SELECT tmp.content_topic_group_sid, ctd.content_topic_id
+        FROM tmp_content_topics tmp
+       INNER JOIN content_topic_dim ctd
+             ON ( tmp.content_topic = ctd.content_topic_nk
+                AND tmp.platform_id = ctd.platform_id)
+        LEFT JOIN content_topic_group_bridge ctgb
+             ON ( tmp.content_topic_group_sid = ctgb.content_topic_group_sid
+                 AND ctd.content_topic_id = ctgb.content_topic_sid)
+       WHERE ctgb.content_topic_group_sid IS NULL

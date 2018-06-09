@@ -1,0 +1,11 @@
+
+GET_QUEUED_JOB: >
+  select instance_sid, config_file, utc_date_sid, utc_timestamp, state, host,is_republish
+  from queue_state
+  where instance_sid in (select instance_sid from queue_state where job=? and key=? group by instance_sid  having count(*)=1)
+  order by utc_timestamp"
+
+CHANGE_STATE: >
+  insert into queue_state (instance_sid,job,config_file,key,utc_date_sid,utc_timestamp,state,host,pid,is_republish) values (?,?,?,?,?,?,?,?,?,?);"
+
+NEXT_INSTANCE_SID: select queue_state_instance_sid.nextval

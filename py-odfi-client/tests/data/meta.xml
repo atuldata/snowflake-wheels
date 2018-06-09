@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feeds uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/feeds">
+	<feedRef uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/feeds/1320/" name="NotReady" id="1320"></feedRef>
+	<feedRef uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/feeds/1320/" name="BadDataSize" id="1320"></feedRef>
+	<feedRef uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/feeds/1320/" name="BadDigest" id="1320"></feedRef>
+	<feedRef uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/feeds/1570/" name="TrafficReport" id="1570"></feedRef>
+</feeds>

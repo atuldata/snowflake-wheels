@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<partition_schema comments="no" fs="\t" name="BadDigest" skip_lines="1" version="11">
+  <field_list count="82">
+    <!-- DIMENSIONS (17): -->
+    <field mysql_type="datetime" name="Hour" position="1"/>
+    <field mysql_type="varchar(10)" name="PublisherMarketOperator" position="2"/>
+    <field mysql_type="varchar(40)" name="PublisherPlatformID" position="3"/>
+    <field mysql_type="bigint" name="BidAccountID" position="4"/>
+    <field mysql_type="varchar(40)" name="BidAdvertiserPlatformID" position="5"/>
+    <field mysql_type="varchar(3)" name="BidCurrency" position="6"/>
+    <field mysql_type="byte" name="BidDefaultToPublisherAuctionConfiguration" position="7"/>
+    <field mysql_type="varchar(2)" name="UserGeoCountry" position="8"/>
+    <field mysql_type="varchar(8)" name="OpenXFacility" position="9"/>
+    <field mysql_type="varchar(255)" name="RewrittenPageURLDomain" position="10"/>
+    <field mysql_type="boolean" name="IsBidderEnabled" position="11"/>
+    <field mysql_type="boolean" name="IsMobileApp" position="12"/>
+    <field mysql_type="varchar(40)" name="PublisherMedium" position="13"/>
+    <field mysql_type="varchar(40)" name="UserMobileDeviceCategory" position="14"/>
+    <field mysql_type="varchar(40)" name="PublisherMappedAdUnitType" position="15"/>
+    <field mysql_type="varchar(40)" name="PublisherAdUnitPresentationFormat" position="16"/>
+    <field mysql_type="varchar(40)" name="PublisherAdUnitPresentationSubFormat" position="17"/>
+    <!-- METRICS (65): -->
+    <field mysql_type="bigint" name="RtbTxRounds" position="18"/>
+    <field mysql_type="bigint" name="RtbAuctions" position="19"/>
+    <field mysql_type="bigint" name="RtbSolicitRounds" position="20"/>
+    <field mysql_type="bigint" name="RtbRequests" position="21"/>
+    <field mysql_type="bigint" name="RtbBidResponses" position="22"/>
+    <field mysql_type="bigint" name="RtbDataSends" position="23"/>
+    <field mysql_type="bigint" name="RtbNonZeroBids" position="24"/>
+    <field mysql_type="bigint" name="RtbZeroBids" position="25"/>
+    <field mysql_type="bigint" name="RtbNonZeroValidBids" position="26"/>
+    <field mysql_type="bigint" name="RtbWins" position="27"/>
+    <field mysql_type="bigint" name="RtbSpends" position="28"/>
+    <field mysql_type="bigint" name="RtbSumWinBidsValue" position="29"/>
+    <field mysql_type="bigint" name="RtbSumBidsValue" position="30"/>
+    <field mysql_type="bigint" name="RtbMarketBillableImpression" position="31"/>
+    <field mysql_type="bigint" name="RtbBidsDiscarded" position="32"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedAqAttribute" position="33"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedAqBrand" position="34"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedAqCategory" position="35"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedAqCrid" position="36"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedAqLanguage" position="37"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedAqType" position="38"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedBrand" position="39"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedUnbranded" position="40"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedDefaulting" position="41"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedDomain" position="42"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedError" position="43"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedEmpty" position="44"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedNegativeBid" position="45"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedNoAdCode" position="46"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedSelfCompete" position="47"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedSslSafe" position="48"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedTimeout" position="49"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedThrottled" position="50"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedPmpNoDealId" position="51"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedPmpNoDealFromPds" position="52"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedPmpBuyer" position="53"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedPmpBrand" position="54"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedPmpAqBrand" position="55"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedDealLineitemNoDeal" position="56"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedCurrentyConversionFailed" position="57"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedSsrtbError" position="58"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedBidTooHigh" position="59"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedOther" position="60"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedAqEcrid" position="61"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedMutualExclusion" position="62"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedNurlTooLong" position="63"/>
+    <field mysql_type="bigint" name="RtbBidsDiscardedNurlInvalid" position="64"/>
+    <field mysql_type="bigint" name="RtbSumBidValueValid" position="65"/>
+    <field mysql_type="bigint" name="RtbSumWinBidValueBillable" position="66"/>
+    <field mysql_type="bigint" name="RtbSsrtbNonzeroSingleBids" position="67"/>
+    <field mysql_type="bigint" name="RtbSsrtbNonzeroMultiBids" position="68"/>
+    <field mysql_type="bigint" name="RtbSsrtbNonzeroSingleAboveBids" position="69"/>
+    <field mysql_type="bigint" name="RtbSsrtbNonzeroMultiAboveBids" position="70"/>
+    <field mysql_type="bigint" name="RtbSsrtbError" position="71"/>
+    <field mysql_type="bigint" name="RtbSsrtbEmpty" position="72"/>
+    <field mysql_type="bigint" name="RtbSsrtbTimeOuts" position="73"/>
+    <field mysql_type="bigint" name="RtbSsrtbThrottled" position="74"/>
+    <field mysql_type="bigint" name="RtbTotalLostFloor" position="75"/>
+    <field mysql_type="bigint" name="RtbTotalLostCompetition" position="76"/>
+    <field mysql_type="bigint" name="RtbTotalLostCompetitionBidder" position="77"/>
+    <field mysql_type="bigint" name="RtbTotalBidsReceivedPmp" position="78"/>
+    <field mysql_type="bigint" name="RtbTotalBidsDiscardedBrand5zGeneric" position="79"/>
+    <field mysql_type="bigint" name="RtbTotalBidsDiscardedBrand5zAdServer" position="80"/>
+    <field mysql_type="bigint" name="RtbTotalBidsDiscardedBrand5zVideo" position="81"/>
+    <field mysql_type="bigint" name="RtbTotalBidsDiscardedBrand5zMalicious" position="82"/>
+  </field_list>
+</partition_schema><!--
+
+{
+    "name":"BadDigest",
+    "user":"grid",
+    "version":11,
+    "partitions":100,
+    "data":"BidRequestData",
+    "inputFilters":[
+        "IsRTBBidForAccount"
+    ],
+    "dimensions":[
+        "Hour",
+        "PublisherMarketOperator",
+        "PublisherPlatformID",
+        "BidAccountID",
+        "BidAdvertiserPlatformID",
+        "BidCurrency",
+        "BidDefaultToPublisherAuctionConfiguration",
+        "UserGeoCountry",
+        "OpenXFacility",
+        "RewrittenPageURLDomain",
+        "IsBidderEnabled",
+        "IsMobileApp",
+        "PublisherMedium",
+        "UserMobileDeviceCategory",
+        "PublisherMappedAdUnitType",
+        "PublisherAdUnitPresentationFormat",
+        "PublisherAdUnitPresentationSubFormat"
+    ],
+    "dimensionDataAdaptors":{
+        "PromptEventData":"BidRequestEverybodyCounts",
+        "TransactionPhaseData":"BidRequestEverybodyCounts",
+        "BaseConfigurationData":"BidRequestEverybodyCounts"
+    },
+    "metrics":[
+        "RtbTxRounds",
+        "RtbAuctions",
+        "RtbSolicitRounds",
+        "RtbRequests",
+        "RtbBidResponses",
+        "RtbDataSends",
+        "RtbNonZeroBids",
+        "RtbZeroBids",
+        "RtbNonZeroValidBids",
+        "RtbWins",
+        "RtbSpends",
+        "RtbSumWinBidsValue",
+        "RtbSumBidsValue",
+        "RtbMarketBillableImpression",
+        "RtbBidsDiscarded",
+        "RtbBidsDiscardedAqAttribute",
+        "RtbBidsDiscardedAqBrand",
+        "RtbBidsDiscardedAqCategory",
+        "RtbBidsDiscardedAqCrid",
+        "RtbBidsDiscardedAqLanguage",
+        "RtbBidsDiscardedAqType",
+        "RtbBidsDiscardedBrand",
+        "RtbBidsDiscardedUnbranded",
+        "RtbBidsDiscardedDefaulting",
+        "RtbBidsDiscardedDomain",
+        "RtbBidsDiscardedError",
+        "RtbBidsDiscardedEmpty",
+        "RtbBidsDiscardedNegativeBid",
+        "RtbBidsDiscardedNoAdCode",
+        "RtbBidsDiscardedSelfCompete",
+        "RtbBidsDiscardedSslSafe",
+        "RtbBidsDiscardedTimeout",
+        "RtbBidsDiscardedThrottled",
+        "RtbBidsDiscardedPmpNoDealId",
+        "RtbBidsDiscardedPmpNoDealFromPds",
+        "RtbBidsDiscardedPmpBuyer",
+        "RtbBidsDiscardedPmpBrand",
+        "RtbBidsDiscardedPmpAqBrand",
+        "RtbBidsDiscardedDealLineitemNoDeal",
+        "RtbBidsDiscardedCurrentyConversionFailed",
+        "RtbBidsDiscardedSsrtbError",
+        "RtbBidsDiscardedBidTooHigh",
+        "RtbBidsDiscardedOther",
+        "RtbBidsDiscardedAqEcrid",
+        "RtbBidsDiscardedMutualExclusion",
+        "RtbBidsDiscardedNurlTooLong",
+        "RtbBidsDiscardedNurlInvalid",
+        "RtbSumBidValueValid",
+        "RtbSumWinBidValueBillable",
+        "RtbSsrtbNonzeroSingleBids",
+        "RtbSsrtbNonzeroMultiBids",
+        "RtbSsrtbNonzeroSingleAboveBids",
+        "RtbSsrtbNonzeroMultiAboveBids",
+        "RtbSsrtbError",
+        "RtbSsrtbEmpty",
+        "RtbSsrtbTimeOuts",
+        "RtbSsrtbThrottled",
+        "RtbTotalLostFloor",
+        "RtbTotalLostCompetition",
+        "RtbTotalLostCompetitionBidder",
+        "RtbTotalBidsReceivedPmp",
+        "RtbTotalBidsDiscardedBrand5zGeneric",
+        "RtbTotalBidsDiscardedBrand5zAdServer",
+        "RtbTotalBidsDiscardedBrand5zVideo",
+        "RtbTotalBidsDiscardedBrand5zMalicious"
+    ],
+    "metricDataAdaptors":{
+        "PromptEventData":"BidRequestPlayingFavoritesForPromptEventDataOnRequestPhaseNonBid",
+        "TransactionPhaseData":"BidRequestPlayingFavoritesForTransactionPhaseDataOnNonBid",
+        "BaseConfigurationData":"BidRequestPlayingFavoritesForPromptEventDataOnRequestPhaseNonBid"
+    },
+    "outputFilters":[
+        "NoValuesAreDiscardable"
+    ]
+}
+-->

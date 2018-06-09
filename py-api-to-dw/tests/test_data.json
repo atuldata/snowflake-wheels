@@ -1,0 +1,4 @@
+{"action": "harmonize", "object": {"type": "type_01", "id": "1", "revision": 10, "deleted": "1", "uid": "uid_01"}}
+{"action": "harmonize", "object": {"type": "type_01", "id": "2", "revision": 20, "deleted": "2", "uid": "uid_02"}}
+{"action": "harmonize", "object": {"type": "type_01", "id": "3", "revision": 30, "deleted": "3", "uid": "uid_03"}}
+{"action": "harmonize", "object": {"type": "type_01", "id": "4", "revision": 40, "deleted": "4", "uid": "uid_04"}}

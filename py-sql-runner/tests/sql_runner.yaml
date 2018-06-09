@@ -1,0 +1,25 @@
+LOAD_STATE_VAR: TEST_sql_runner
+STATEMENTS:
+    - CREATE TEMPORARY TABLE %(temp_table)s (
+          col1 int,
+          col2 varchar(32)
+      )
+    - INSERT INTO %(temp_table)s(col1, col2)
+      VALUES(1, 'one')
+    - INSERT INTO %(temp_table)s(col1, col2)
+      VALUES(2, 'two')
+    - INSERT INTO %(temp_table)s(col1, col2)
+      VALUES(3, 'three')
+    - INSERT INTO %(temp_table)s(col1, col2)
+      VALUES(4, 'four')
+    - INSERT INTO %(temp_table)s(col1, col2)
+      VALUES(5, 'five')
+    - INSERT INTO %(temp_table)s(col1, col2)
+      VALUES(6, 'six')
+    - SELECT * FROM %(temp_table)s WHERE col1 > %(col1)s ORDER BY 1
+VARIABLES:
+    temp_table: tmp_hello
+    col1: 3
+FIELD_SEP: '@'
+HEADERS: !!bool True
+APP_NAME: sql_runner_test

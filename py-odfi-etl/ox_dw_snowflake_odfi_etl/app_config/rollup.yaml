@@ -1,0 +1,429 @@
+
+AFFECTED_CREATE_TMP:
+  create local temporary TABLE tmp_affected_rollup ( platform_id varchar(45), platform_timezone varchar(100), account_nk int NULL, account_timezone varchar(100) NULL, utc_start datetime, utc_end datetime ) ON COMMIT preserve rows
+
+AFFECTED_DAILYHOURLY_PUBLISHER_MONTH: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT platform_id,
+         NULL,
+         publisher_account_nk,
+         publisher_account_timezone,
+         TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+         DATEADD('day',-1,DATEADD('month',1,TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD')))
+  FROM   publisher_dim
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)) = TO_DATE( TO_CHAR( TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?))), 'YYYY-MM-01' ), 'YYYY-MM-DD' )
+
+AFFECTED_DAILYHOURLY_PUBLISHER_MONTH_GET_DATES: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_DROP_TMP: >
+  DROP TABLE IF EXISTS tmp_affected_rollup
+
+AFFECTED_UTC_ADVERTISER_DAY: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT platform_id,
+         NULL,
+         advertiser_account_nk,
+         advertiser_account_timezone,
+         CONVERT_TIMEZONE( advertiser_account_timezone, 'UTC',TO_DATE(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?))),
+         CONVERT_TIMEZONE( advertiser_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?)))))
+  FROM   advertiser_dim
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?)) = TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?)))
+
+AFFECTED_UTC_ADVERTISER_DAY_GET_DATES: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', account_timezone,?)),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_UTC_ADVERTISER_MONTH: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT platform_id,
+         NULL,
+         advertiser_account_nk,
+         advertiser_account_timezone,
+         TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+         DATEADD('day',-1,DATEADD('month',1,TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD')))
+  FROM   advertiser_dim
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?)) = TO_DATE( TO_CHAR( TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?))), 'YYYY-MM-01' ), 'YYYY-MM-DD' )
+
+AFFECTED_UTC_ADVERTISER_MONTH_GET_DATES: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_UTC_PLATFORM_DAY: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT platform_id,
+         timezone,
+         NULL,
+         NULL,
+         CONVERT_TIMEZONE( timezone, 'UTC',TO_DATE(CONVERT_TIMEZONE( 'UTC', timezone,?))),
+         CONVERT_TIMEZONE( timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', timezone,?)))))
+  FROM   platform_dim
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', timezone,?)) = TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', timezone,?)))
+
+AFFECTED_UTC_PLATFORM_DAY_GET_DATES: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', platform_timezone,?)),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_UTC_PLATFORM_MONTH: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT platform_id,
+         timezone,
+         NULL,
+         NULL,
+         TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+         DATEADD('day',-1,DATEADD('month',1,TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD')))
+  FROM   platform_dim
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', timezone,?)) = TO_DATE( TO_CHAR( TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', timezone,?))), 'YYYY-MM-01' ), 'YYYY-MM-DD' )
+
+AFFECTED_UTC_PLATFORM_MONTH_GET_DATES: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', platform_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_UTC_PUBLISHER_DAY: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT platform_id,
+         NULL,
+         publisher_account_nk,
+         publisher_account_timezone,
+         CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?))),
+         CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)))))
+  FROM   publisher_dim
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)) = TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)))
+
+AFFECTED_UTC_PUBLISHER_DAY_GET_DATES: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', account_timezone,?)),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_UTC_PUBLISHER_MONTH: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT platform_id,
+         NULL,
+         publisher_account_nk,
+         publisher_account_timezone,
+         TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+         DATEADD('day',-1,DATEADD('month',1,TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', publisheraccount_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD')))
+  FROM   publisher_dim
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?)) = TO_DATE( TO_CHAR( TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?))), 'YYYY-MM-01' ), 'YYYY-MM-DD' )
+
+AFFECTED_UTC_PUBLISHER_MONTH_GET_DATES: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', account_timezone,?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_UTC_UTC_DAY: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT NULL,
+         NULL,
+         NULL,
+         NULL,
+         CONVERT_TIMEZONE( 'UTC', 'UTC',TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?))),
+         CONVERT_TIMEZONE( 'UTC', 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?)))))
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', 'UTC',?)) = TO_DATE(DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', 'UTC',?)))
+
+AFFECTED_UTC_UTC_DAY_GET_DATES: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?)),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+AFFECTED_UTC_UTC_MONTH: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT NULL,
+         'UTC',
+         NULL,
+         NULL,
+         TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+         DATEADD('day',-1,DATEADD('month',1,TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?)), 'YYYY-MM-01'), 'YYYY-MM-DD')))
+  WHERE  DATEADD('hour',1,CONVERT_TIMEZONE( 'UTC', 'UTC',?)) = TO_DATE( TO_CHAR( TO_DATE(DATEADD('day',1,CONVERT_TIMEZONE( 'UTC', 'UTC',?))), 'YYYY-MM-01' ), 'YYYY-MM-DD' )
+
+AFFECTED_UTC_UTC_MONTH_DAY: >
+  INSERT INTO tmp_affected_rollup
+              (
+                          platform_id,
+                          platform_timezone,
+                          account_nk,
+                          account_timezone,
+                          utc_start,
+                          utc_end
+              )
+  SELECT NULL,
+         'UTC',
+         NULL,
+         NULL,
+         TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+         DATEADD('day',-1,DATEADD('month',1,TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?)), 'YYYY-MM-01'), 'YYYY-MM-DD')))
+  WHERE  ? = LAST_DAY(?)
+
+AFFECTED_UTC_UTC_MONTH_GET_DATES: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?)), 'YYYY-MM-01'), 'YYYY-MM-DD'),
+                  utc_start,
+                  utc_end
+  FROM            tmp_affected_rollup
+
+QUERY_LOAD_STATE: >
+  SELECT variable_value
+  FROM   load_state
+  WHERE  variable_name = ?
+
+ROLLUP_CREATE_LOAD_TABLE:
+  create temporary TABLE tmp_rollup_load ( rollup_type varchar(64) NOT NULL, rollup_interval varchar(32) NOT NULL, instance_rollup_date date NOT NULL, last_hour timestamp NOT NULL )
+  ON COMMIT preserve rows
+
+ROLLUP_DAILYHOURLY_PUBLISHER_MONTH: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD') AS instance_rollup_date,
+                  CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) AS last_hour
+  FROM            publisher_dim
+  WHERE           CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+ROLLUP_DROP_LOAD_TABLE: >
+  DROP TABLE IF EXISTS tmp_rollup_load
+
+ROLLUP_LOAD_TABLE:
+  insert into tmp_rollup_load(rollup_type,rollup_interval,instance_rollup_date,last_hour) select ?, ? , ? , ?
+
+ROLLUP_MERGE: >
+  INSERT INTO rollup_queue
+              (
+                          rollup_type,
+                          rollup_interval,
+                          instance_rollup_date,
+                          last_hour
+              )
+  SELECT rollup_type,
+         rollup_interval,
+         instance_rollup_date,
+         last_hour
+  FROM   tmp_rollup_load
+  WHERE  (
+                rollup_type, rollup_interval, instance_rollup_date, last_hour ) NOT IN
+         (
+                SELECT rollup_type,
+                       rollup_interval,
+                       instance_rollup_date,
+                       last_hour
+                FROM   rollup_queue )
+
+
+ROLLUP_QUERY: >
+  SELECT   rollup_type,
+           rollup_interval,
+           instance_rollup_date,
+           last_hour
+  FROM     rollup_queue
+  where rollup_type=?
+  ORDER BY rollup_interval,
+           instance_rollup_date,
+           rollup_type
+
+ROLLUP_QUERY_ONE: >
+  SELECT   rollup_sid,
+           rollup_type,
+           rollup_interval,
+           instance_rollup_date,
+           last_hour, (
+           CASE
+                    WHEN Upper(rollup_interval)='BASE' THEN 1
+                    WHEN Upper(rollup_interval)='DAY' THEN 2
+                    WHEN Upper(rollup_interval)='MONTH' THEN 3
+                    ELSE 0
+           END) AS rollup_interval_code
+  FROM     rollup_queue
+  where rollup_type=?
+  ORDER BY rollup_type,
+           rollup_interval_code,
+           last_hour limit 1
+
+ROLLUP_REMOVE: >
+  DELETE
+  FROM   rollup_queue
+  WHERE  rollup_sid=?
+
+ROLLUP_UTC_ADVERTISER_DAY: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?))                                                                                           AS instance_rollup_date,
+                  CONVERT_TIMEZONE( advertiser_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?))))) AS last_hour
+  FROM            advertiser_dim
+  WHERE           CONVERT_TIMEZONE( advertiser_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?))))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+ROLLUP_UTC_ADVERTISER_HOUR: >
+  SELECT Cast(? AS DATETIME),
+         Cast(? AS DATETIME)
+  FROM   dual
+
+ROLLUP_UTC_ADVERTISER_MONTH: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')                                                                                             AS instance_rollup_date,
+                  CONVERT_TIMEZONE( advertiser_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) AS last_hour
+  FROM            advertiser_dim
+  WHERE           CONVERT_TIMEZONE( advertiser_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', advertiser_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+ROLLUP_UTC_PLATFORM_DAY: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', timezone,?))                                                                        AS instance_rollup_date,
+                  CONVERT_TIMEZONE( timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', timezone,?))))) AS last_hour
+  FROM            platform_dim
+  WHERE           CONVERT_TIMEZONE( timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', timezone,?))))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+ROLLUP_UTC_PLATFORM_HOUR: >
+  SELECT Cast(? AS DATETIME),
+         Cast(? AS DATETIME)
+  FROM   dual
+
+ROLLUP_UTC_PLATFORM_MONTH: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')                                                                          AS instance_rollup_date,
+                  CONVERT_TIMEZONE( timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) AS last_hour
+  FROM            platform_dim
+  WHERE           CONVERT_TIMEZONE( timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+ROLLUP_UTC_PUBLISHER_DAY: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?))                                                                                          AS instance_rollup_date,
+                  CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?))))) AS last_hour
+  FROM            publisher_dim
+  WHERE           CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?))))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+
+ROLLUP_UTC_PUBLISHER_HOUR: >
+  SELECT Cast(? AS DATETIME),
+           Cast(? AS DATETIME)
+  FROM   dual
+
+ROLLUP_UTC_PUBLISHER_MONTH: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')                                                                                            AS instance_rollup_date,
+                  CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) AS last_hour
+  FROM            publisher_dim
+  WHERE           CONVERT_TIMEZONE( publisher_account_timezone, 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', publisher_account_timezone,?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+ROLLUP_UTC_UTC_DAY: >
+  SELECT DISTINCT TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?))                                                                     AS utc_rollup_date,
+                  CONVERT_TIMEZONE( 'UTC', 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?))))) AS last_hour
+  WHERE           CONVERT_TIMEZONE( 'UTC', 'UTC',DATEADD('hour',-1,DATEADD('day',1,TO_DATE(CONVERT_TIMEZONE( 'UTC', 'UTC',?))))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)
+
+
+ROLLUP_UTC_UTC_HOUR: >
+  SELECT Cast(? AS DATETIME),
+         Cast(? AS DATETIME)
+  FROM   dual
+
+ROLLUP_UTC_UTC_MONTH: >
+  SELECT DISTINCT TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', 'UTC',?), 'YYYY-MM-01'), 'YYYY-MM-DD')                                                                       AS utc_rollup_date,
+                  CONVERT_TIMEZONE( 'UTC', 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', 'UTC',?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) AS last_hour
+  WHERE           CONVERT_TIMEZONE( 'UTC', 'UTC',DATEADD('hour',-1,DATEADD('month',1,TO_DATE(TO_CHAR(CONVERT_TIMEZONE( 'UTC', 'UTC',?), 'YYYY-MM-01'), 'YYYY-MM-DD')))) <=
+                  (
+                         SELECT TO_TIMESTAMP(variable_value, 'YYYY-MM-DD HH24:MI:SS')
+                         FROM   load_state
+                         WHERE  variable_name = ?)

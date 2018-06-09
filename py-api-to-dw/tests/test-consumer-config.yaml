@@ -1,0 +1,18 @@
+RABBITMQ:
+    credentials:
+        username: guest
+        password: guest
+    connection_parameters:
+        host: qa-ox3-api-queues.ca.dc.openx.org
+        port: 5672
+        heartbeat_interval: !!int 60
+        socket_timeout: !!int 60
+QUEUES:
+    test_live_exchange:
+        exchange: ack
+        type: topic,
+        durable: !!bool true
+    test_harmonizer_exchange:
+        exchange: harmonizer_topic
+        type: topic,
+        durable: !!bool true

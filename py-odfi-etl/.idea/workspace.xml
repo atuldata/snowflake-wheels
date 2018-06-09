@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c35e04ec-317d-4026-b74d-5f88b77702f2" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="adjustment.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/adjustment.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="daily_adjustment.yaml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/daily_adjustment.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="950" column="117" lean-forward="true" selection-start-line="950" selection-start-column="117" selection-end-line="950" selection-end-column="117" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="791">
+                <caret line="356" column="0" lean-forward="true" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
+                <folding>
+                  <marker date="1528496849096" expanded="true" signature="577:618" ph="DB_CONNECTION: &lt;1 key&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="615:618" ph="..." />
+                  <marker date="1528496849096" expanded="true" signature="811:817" ph="MyFeed" />
+                  <marker date="1528496849096" expanded="true" signature="945:956" ph="true" />
+                  <marker date="1528496849096" expanded="true" signature="1033:1055" ph="my_load_s…e_var_name" />
+                  <marker date="1528496849096" expanded="true" signature="1167:1274" ph="AUXILIARY…STATE_VARS: &lt;2 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="1221:1244" ph="aux_load_…e_name_one" />
+                  <marker date="1528496849096" expanded="true" signature="1251:1274" ph="aux_load_…e_name_two" />
+                  <marker date="1528496849096" expanded="true" signature="1370:1424" ph="DEPENDS_ON: &lt;2 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="1409:1413" ph="job1" />
+                  <marker date="1528496849096" expanded="true" signature="1420:1424" ph="job2" />
+                  <marker date="1528496849096" expanded="true" signature="1474:2104" ph="ETL_STATEMENTS: &lt;4 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="1535:1555" ph="SQL statement to run" />
+                  <marker date="1528496849096" expanded="true" signature="1622:1650" ph="A title o…escription" />
+                  <marker date="1528496849096" expanded="true" signature="1663:1683" ph="SQL statement to run" />
+                  <marker date="1528496849096" expanded="true" signature="1726:1799" ph="A descrip… returned." />
+                  <marker date="1528496849096" expanded="true" signature="1819:1919" ph="Query tha… stop here" />
+                  <marker date="1528496849096" expanded="true" signature="1965:1992" ph="A descrip… the check" />
+                  <marker date="1528496849096" expanded="true" signature="2015:2049" ph="SELECT Tr…m a query." />
+                  <marker date="1528496849096" expanded="true" signature="2062:2104" ph="SQL stmt …k is true." />
+                  <marker date="1528496849096" expanded="true" signature="2190:7498" ph="ROLLUP_OX…ACTION_SUM: &lt;2 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="2207:7498" ph="OX_TRANSACTION_SUM: &lt;4 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="2231:3604" ph="keys: &lt;60 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="2245:2258" ph="x_platform_id" />
+                  <marker date="1528496849096" expanded="true" signature="2267:2287" ph="publisher_account_nk" />
+                  <marker date="1528496849096" expanded="true" signature="2296:2303" ph="site_nk" />
+                  <marker date="1528496849096" expanded="true" signature="2312:2321" ph="p_channel" />
+                  <marker date="1528496849096" expanded="true" signature="2330:2336" ph="domain" />
+                  <marker date="1528496849096" expanded="true" signature="2345:2354" ph="category1" />
+                  <marker date="1528496849096" expanded="true" signature="2363:2372" ph="category2" />
+                  <marker date="1528496849096" expanded="true" signature="2381:2387" ph="p_coin" />
+                  <marker date="1528496849096" expanded="true" signature="2396:2410" ph="p_def_ad_width" />
+                  <marker date="1528496849096" expanded="true" signature="2419:2434" ph="p_def_ad_height" />
+                  <marker date="1528496849096" expanded="true" signature="2443:2453" ph="p_ad_sizes" />
+                  <marker date="1528496849096" expanded="true" signature="2462:2474" ph="country_code" />
+                  <marker date="1528496849096" expanded="true" signature="2483:2501" ph="p_req_deliv_medium" />
+                  <marker date="1528496849096" expanded="true" signature="2510:2527" ph="p_mobl_app_bundle" />
+                  <marker date="1528496849096" expanded="true" signature="2536:2551" ph="p_mobl_app_name" />
+                  <marker date="1528496849096" expanded="true" signature="2560:2566" ph="is_mkt" />
+                  <marker date="1528496849096" expanded="true" signature="2575:2586" ph="p_mkt_floor" />
+                  <marker date="1528496849096" expanded="true" signature="2595:2610" ph="p_mkt_floor_usd" />
+                  <marker date="1528496849096" expanded="true" signature="2619:2638" ph="p_mkt_natural_floor" />
+                  <marker date="1528496849096" expanded="true" signature="2647:2670" ph="p_mkt_nat…_floor_usd" />
+                  <marker date="1528496849096" expanded="true" signature="2679:2687" ph="p_mkt_op" />
+                  <marker date="1528496849096" expanded="true" signature="2696:2705" ph="p_op_coin" />
+                  <marker date="1528496849096" expanded="true" signature="2714:2728" ph="p_op_mkt_floor" />
+                  <marker date="1528496849096" expanded="true" signature="2737:2755" ph="p_op_mkt_floor_usd" />
+                  <marker date="1528496849096" expanded="true" signature="2764:2786" ph="p_op_mkt_…ural_floor" />
+                  <marker date="1528496849096" expanded="true" signature="2795:2821" ph="p_op_mkt_…_floor_usd" />
+                  <marker date="1528496849096" expanded="true" signature="2830:2843" ph="a_platform_id" />
+                  <marker date="1528496849096" expanded="true" signature="2852:2873" ph="advertise…account_nk" />
+                  <marker date="1528496849096" expanded="true" signature="2882:2890" ph="order_nk" />
+                  <marker date="1528496849096" expanded="true" signature="2899:2911" ph="line_item_nk" />
+                  <marker date="1528496849096" expanded="true" signature="2920:2925" ph="ad_nk" />
+                  <marker date="1528496849096" expanded="true" signature="2934:2943" ph="a_ad_size" />
+                  <marker date="1528496849096" expanded="true" signature="2952:2958" ph="a_coin" />
+                  <marker date="1528496849096" expanded="true" signature="2967:2975" ph="a_mkt_op" />
+                  <marker date="1528496849096" expanded="true" signature="2984:2991" ph="wintype" />
+                  <marker date="1528496849096" expanded="true" signature="3000:3010" ph="package_nk" />
+                  <marker date="1528496849096" expanded="true" signature="3019:3026" ph="deal_nk" />
+                  <marker date="1528496849096" expanded="true" signature="3035:3048" ph="x_bidder_elig" />
+                  <marker date="1528496849096" expanded="true" signature="3057:3077" ph="p_mapped_adunit_type" />
+                  <marker date="1528496849096" expanded="true" signature="3086:3097" ph="p_targetcpm" />
+                  <marker date="1528496849096" expanded="true" signature="3106:3120" ph="p_op_targetcpm" />
+                  <marker date="1528496849096" expanded="true" signature="3129:3137" ph="p_medium" />
+                  <marker date="1528496849096" expanded="true" signature="3146:3160" ph="u_mobl_dev_cat" />
+                  <marker date="1528496849096" expanded="true" signature="3169:3182" ph="is_mobile_app" />
+                  <marker date="1528496849096" expanded="true" signature="3191:3219" ph="p_adunit_…ion_format" />
+                  <marker date="1528496849096" expanded="true" signature="3228:3259" ph="p_adunit_…_subformat" />
+                  <marker date="1528496849096" expanded="true" signature="3268:3284" ph="x_gd_platform_id" />
+                  <marker date="1528496849096" expanded="true" signature="3293:3308" ph="x_gd_package_id" />
+                  <marker date="1528496849096" expanded="true" signature="3317:3329" ph="x_gd_deal_id" />
+                  <marker date="1528496849096" expanded="true" signature="3338:3360" ph="x_exchang…ee_applied" />
+                  <marker date="1528496849096" expanded="true" signature="3369:3384" ph="x_apply_pd_fees" />
+                  <marker date="1528496849096" expanded="true" signature="3393:3406" ph="deal_win_type" />
+                  <marker date="1528496849096" expanded="true" signature="3415:3423" ph="x_bidout" />
+                  <marker date="1528496849096" expanded="true" signature="3432:3455" ph="p_ext_sup…partner_id" />
+                  <marker date="1528496849096" expanded="true" signature="3464:3482" ph="p_ext_auction_type" />
+                  <marker date="1528496849096" expanded="true" signature="3491:3513" ph="p_ext_cp_…rency_code" />
+                  <marker date="1528496849096" expanded="true" signature="3522:3540" ph="sales_channel_code" />
+                  <marker date="1528496849096" expanded="true" signature="3549:3560" ph="x_price_won" />
+                  <marker date="1528496849096" expanded="true" signature="3569:3585" ph="x_pd_fee_applied" />
+                  <marker date="1528496849096" expanded="true" signature="3594:3604" ph="x_rewarded" />
+                  <marker date="1528496849096" expanded="true" signature="3609:4519" ph="metrics: &lt;32 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="3626:3638" ph="tot_requests" />
+                  <marker date="1528496849096" expanded="true" signature="3647:3662" ph="tot_discard_req" />
+                  <marker date="1528496849096" expanded="true" signature="3671:3687" ph="tot_mkt_elig_req" />
+                  <marker date="1528496849096" expanded="true" signature="3696:3707" ph="tot_mkt_req" />
+                  <marker date="1528496849096" expanded="true" signature="3716:3728" ph="tot_auctions" />
+                  <marker date="1528496849096" expanded="true" signature="3737:3746" ph="tot_fills" />
+                  <marker date="1528496849096" expanded="true" signature="3755:3770" ph="tot_impressions" />
+                  <marker date="1528496849096" expanded="true" signature="3779:3803" ph="tot_billa…mpressions" />
+                  <marker date="1528496849096" expanded="true" signature="3812:3824" ph="tot_fallback" />
+                  <marker date="1528496849096" expanded="true" signature="3833:3843" ph="tot_clicks" />
+                  <marker date="1528496849096" expanded="true" signature="3852:3863" ph="tot_a_spend" />
+                  <marker date="1528496849096" expanded="true" signature="3872:3887" ph="tot_usd_a_spend" />
+                  <marker date="1528496849096" expanded="true" signature="3896:3909" ph="tot_p_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="3918:3935" ph="tot_usd_p_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="3944:3960" ph="tot_p_op_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="3969:3989" ph="tot_usd_p_op_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="3998:4024" ph="tot_p_mkt…or_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="4033:4063" ph="tot_usd_p…or_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="4072:4098" ph="tot_a_mkt…or_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="4107:4137" ph="tot_usd_a…or_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="4146:4167" ph="tot_count…_mkt_floor" />
+                  <marker date="1528496849096" expanded="true" signature="4176:4195" ph="tot_sum_p_mkt_floor" />
+                  <marker date="1528496849096" expanded="true" signature="4204:4228" ph="tot_count…_mkt_floor" />
+                  <marker date="1528496849096" expanded="true" signature="4237:4272" ph="tot_pub_e…ring_price" />
+                  <marker date="1528496849096" expanded="true" signature="4281:4309" ph="tot_all_c…rice_count" />
+                  <marker date="1528496849096" expanded="true" signature="4318:4340" ph="tot_sum_p…_mkt_floor" />
+                  <marker date="1528496849096" expanded="true" signature="4349:4369" ph="tot_view_conversions" />
+                  <marker date="1528496849096" expanded="true" signature="4378:4399" ph="tot_click…onversions" />
+                  <marker date="1528496849096" expanded="true" signature="4408:4434" ph="tot_raw_c…on_revenue" />
+                  <marker date="1528496849096" expanded="true" signature="4443:4467" ph="tot_raw_c…sion_spend" />
+                  <marker date="1528496849096" expanded="true" signature="4476:4495" ph="tot_fp_mkt_elig_req" />
+                  <marker date="1528496849096" expanded="true" signature="4504:4519" ph="tot_p_gross_rev" />
+                  <marker date="1528496849096" expanded="true" signature="4535:4538" ph="UTC" />
+                  <marker date="1528496849096" expanded="true" signature="4543:7498" ph="time_rollups: &lt;4 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="4887:5586" ph="advertiser_day: &lt;10 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="4911:5001" ph="affected: &lt;2 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="4946:4957" ph="platform_id" />
+                  <marker date="1528496849096" expanded="true" signature="4991:5001" ph="account_nk" />
+                  <marker date="1528496849096" expanded="true" signature="5053:5109" ph="keys: &lt;2 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="5069:5085" ph="advt_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="5096:5109" ph="advt_date_sid" />
+                  <marker date="1528496849096" expanded="true" signature="5126:5156" ph="ox_transa…ourly_fact" />
+                  <marker date="1528496849096" expanded="true" signature="5172:5206" ph="advt_ox_t…daily_fact" />
+                  <marker date="1528496849096" expanded="true" signature="5294:5304" ph="advertiser" />
+                  <marker date="1528496849096" expanded="true" signature="5323:5326" ph="day" />
+                  <marker date="1528496849096" expanded="true" signature="5348:5361" ph="utc_timestamp" />
+                  <marker date="1528496849096" expanded="true" signature="5388:5404" ph="advt_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="5439:5492" ph="grid_advt…_last_hour" />
+                  <marker date="1528496849096" expanded="true" signature="5534:5586" ph="grid_ox_t…our_loaded" />
+                  <marker date="1528496849096" expanded="true" signature="5593:6271" ph="platform_day: &lt;10 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="5615:5661" ph="affected: &lt;1 key&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="5650:5661" ph="platform_id" />
+                  <marker date="1528496849096" expanded="true" signature="5713:5777" ph="keys: &lt;2 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="5729:5749" ph="instance_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="5760:5777" ph="instance_date_sid" />
+                  <marker date="1528496849096" expanded="true" signature="5794:5824" ph="ox_transa…ourly_fact" />
+                  <marker date="1528496849096" expanded="true" signature="5840:5880" ph="ox_transa…instancetz" />
+                  <marker date="1528496849096" expanded="true" signature="5968:5976" ph="platform" />
+                  <marker date="1528496849096" expanded="true" signature="5995:5998" ph="day" />
+                  <marker date="1528496849096" expanded="true" signature="6020:6033" ph="utc_timestamp" />
+                  <marker date="1528496849096" expanded="true" signature="6060:6080" ph="instance_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="6115:6177" ph="grid_ox_t…_last_hour" />
+                  <marker date="1528496849096" expanded="true" signature="6219:6271" ph="grid_ox_t…our_loaded" />
+                  <marker date="1528496849096" expanded="true" signature="6278:6933" ph="day: &lt;11 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="6291:6337" ph="affected: &lt;1 key&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="6326:6337" ph="platform_id" />
+                  <marker date="1528496849096" expanded="true" signature="6389:6443" ph="keys: &lt;2 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="6405:6420" ph="utc_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="6431:6443" ph="utc_date_sid" />
+                  <marker date="1528496849096" expanded="true" signature="6460:6490" ph="ox_transa…ourly_fact" />
+                  <marker date="1528496849096" expanded="true" signature="6506:6535" ph="ox_transa…daily_fact" />
+                  <marker date="1528496849096" expanded="true" signature="6623:6626" ph="UTC" />
+                  <marker date="1528496849096" expanded="true" signature="6645:6648" ph="day" />
+                  <marker date="1528496849096" expanded="true" signature="6670:6683" ph="utc_timestamp" />
+                  <marker date="1528496849096" expanded="true" signature="6710:6725" ph="utc_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="6760:6806" ph="grid_ox_t…_last_hour" />
+                  <marker date="1528496849096" expanded="true" signature="6848:6900" ph="grid_ox_t…our_loaded" />
+                  <marker date="1528496849096" expanded="true" signature="6928:6933" ph="month" />
+                  <marker date="1528496849096" expanded="true" signature="6940:7498" ph="month: &lt;10 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="6955:7001" ph="affected: &lt;1 key&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="6990:7001" ph="platform_id" />
+                  <marker date="1528496849096" expanded="true" signature="7054:7109" ph="keys: &lt;2 items&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="7070:7085" ph="utc_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="7096:7109" ph="utc_month_sid" />
+                  <marker date="1528496849096" expanded="true" signature="7126:7155" ph="ox_transa…daily_fact" />
+                  <marker date="1528496849096" expanded="true" signature="7171:7202" ph="ox_transa…nthly_fact" />
+                  <marker date="1528496849096" expanded="true" signature="7221:7224" ph="UTC" />
+                  <marker date="1528496849096" expanded="true" signature="7243:7248" ph="month" />
+                  <marker date="1528496849096" expanded="true" signature="7270:7285" ph="utc_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="7312:7327" ph="utc_rollup_date" />
+                  <marker date="1528496849096" expanded="true" signature="7362:7410" ph="grid_ox_t…_last_hour" />
+                  <marker date="1528496849096" expanded="true" signature="7413:7498" ph="month: &lt;10 keys&gt;" />
+                  <marker date="1528496849096" expanded="true" signature="7452:7498" ph="grid_ox_t…_last_hour" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>rows</find>
+      <find>get_conf</find>
+      <find>queue_rollup_hours</find>
+      <find>config</find>
+      <find>'keys'</find>
+      <find>CONFIG</find>
+      <find>rollup_queue</find>
+      <find>queue_rollups</find>
+      <find>rollup_name</find>
+      <find>rollup_type</find>
+      <find>[rollup_name</find>
+      <find>[rollup_</find>
+      <find>(UTC_DATE_SID)?</find>
+      <find>JOB_QUEUE_FRAMEWORK</find>
+      <find>self.logger</find>
+      <find>self.db</find>
+      <find>readable</find>
+      <find>change_state</find>
+      <find>is_republish</find>
+      <find>queue_rev</find>
+      <find>change_state(</find>
+      <find>Rollu</find>
+      <find>self.job[</find>
+      <find>key</find>
+      <find>queue_job</find>
+      <find>process_queue_job</find>
+      <find>GET_QUEUED_JOB</find>
+      <find>rollup</find>
+      <find>queue_rev_adjustment</find>
+      <find>history</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>)</replace>
+      <replace>))</replace>
+      <replace>,</replace>
+      <replace>'2018-05-20 6:00:00'</replace>
+      <replace>2018-05-19 23:00:00</replace>
+      <replace>'UTC'</replace>
+      <replace>DATEADD</replace>
+      <replace>: &gt;</replace>
+      <replace>DATEADD(</replace>
+      <replace>db.get_executed_cursor(</replace>
+      <replace>#db.commit()</replace>
+      <replace>db.cursor().execute</replace>
+      <replace>GET_UPLOAD_STATUS_SERIAL</replace>
+      <replace>self.job.rollup_interval_type</replace>
+      <replace>self.job.rollup_end_date</replace>
+      <replace>options.preview</replace>
+      <replace>self.job.add_rollup_queue</replace>
+      <replace>self.job.run_rollup_queue</replace>
+      <replace>preview_rollup_queue</replace>
+      <replace>self.job.rollup_name</replace>
+      <replace>self.rollup_config</replace>
+      <replace>self.job.logger(</replace>
+      <replace>self.job.logger.info(</replace>
+      <replace>rollup_metrics</replace>
+      <replace>rollup_keys</replace>
+      <replace>rollup_config['ROLLUP_CONFIG'][rollup_name]</replace>
+      <replace>self.job.logger</replace>
+      <replace>self.job.dbh</replace>
+      <replace>self.revenue_job[</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/table_rollup.yaml" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/roller.yaml" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/_base.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/add_new.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/rollup_job.yaml" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/_loader_base.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/argparse.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/rollup.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/rollup.yaml" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/bootstrap.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/settings.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/_base.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/job.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/rolluper.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/rollup_util.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/revenue_queue.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/adjustment.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/process_queue.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/adjustment_util.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/job_queue_lib.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/uploader.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/adjustmenter.py" />
+        <option value="$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/adjustment.yaml" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="810" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="py-odfi-etl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="py-odfi-etl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="py-odfi-etl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="py-odfi-etl" type="462c0819:PsiDirectoryNode" />
+              <item name="ox_dw_snowflake_odfi_etl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="py-odfi-etl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="py-odfi-etl" type="462c0819:PsiDirectoryNode" />
+              <item name="ox_dw_snowflake_odfi_etl" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="py-odfi-etl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="py-odfi-etl" type="462c0819:PsiDirectoryNode" />
+              <item name="ox_dw_snowflake_odfi_etl" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+              <item name="actors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="py-odfi-etl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="py-odfi-etl" type="462c0819:PsiDirectoryNode" />
+              <item name="ox_dw_snowflake_odfi_etl" type="462c0819:PsiDirectoryNode" />
+              <item name="app_config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="py-odfi-etl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="py-odfi-etl" type="462c0819:PsiDirectoryNode" />
+              <item name="ox_dw_snowflake_odfi_etl" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c35e04ec-317d-4026-b74d-5f88b77702f2" name="Default" comment="" />
+      <created>1526700734351</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526700734351</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="810" height="1050" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2617284" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Job" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="MaxCompute Job" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/rollup.py</url>
+          <line>35</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/rolluper.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3465">
+            <caret line="231" column="0" lean-forward="true" selection-start-line="231" selection-start-column="0" selection-end-line="231" selection-end-column="0" />
+            <folding>
+              <marker date="1528496849096" expanded="true" signature="577:618" ph="DB_CONNECTION: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="615:618" ph="..." />
+              <marker date="1528496849096" expanded="true" signature="811:817" ph="MyFeed" />
+              <marker date="1528496849096" expanded="true" signature="945:956" ph="true" />
+              <marker date="1528496849096" expanded="true" signature="1033:1055" ph="my_load_s…e_var_name" />
+              <marker date="1528496849096" expanded="true" signature="1167:1274" ph="AUXILIARY…STATE_VARS: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="1221:1244" ph="aux_load_…e_name_one" />
+              <marker date="1528496849096" expanded="true" signature="1251:1274" ph="aux_load_…e_name_two" />
+              <marker date="1528496849096" expanded="true" signature="1370:1424" ph="DEPENDS_ON: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="1409:1413" ph="job1" />
+              <marker date="1528496849096" expanded="true" signature="1420:1424" ph="job2" />
+              <marker date="1528496849096" expanded="true" signature="1474:2104" ph="ETL_STATEMENTS: &lt;4 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="1535:1555" ph="SQL statement to run" />
+              <marker date="1528496849096" expanded="true" signature="1622:1650" ph="A title o…escription" />
+              <marker date="1528496849096" expanded="true" signature="1663:1683" ph="SQL statement to run" />
+              <marker date="1528496849096" expanded="true" signature="1726:1799" ph="A descrip… returned." />
+              <marker date="1528496849096" expanded="true" signature="1819:1919" ph="Query tha… stop here" />
+              <marker date="1528496849096" expanded="true" signature="1965:1992" ph="A descrip… the check" />
+              <marker date="1528496849096" expanded="true" signature="2015:2049" ph="SELECT Tr…m a query." />
+              <marker date="1528496849096" expanded="true" signature="2062:2104" ph="SQL stmt …k is true." />
+              <marker date="1528496849096" expanded="true" signature="2190:7498" ph="ROLLUP_OX…ACTION_SUM: &lt;2 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="2207:7498" ph="OX_TRANSACTION_SUM: &lt;4 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="2231:3604" ph="keys: &lt;60 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="2245:2258" ph="x_platform_id" />
+              <marker date="1528496849096" expanded="true" signature="2267:2287" ph="publisher_account_nk" />
+              <marker date="1528496849096" expanded="true" signature="2296:2303" ph="site_nk" />
+              <marker date="1528496849096" expanded="true" signature="2312:2321" ph="p_channel" />
+              <marker date="1528496849096" expanded="true" signature="2330:2336" ph="domain" />
+              <marker date="1528496849096" expanded="true" signature="2345:2354" ph="category1" />
+              <marker date="1528496849096" expanded="true" signature="2363:2372" ph="category2" />
+              <marker date="1528496849096" expanded="true" signature="2381:2387" ph="p_coin" />
+              <marker date="1528496849096" expanded="true" signature="2396:2410" ph="p_def_ad_width" />
+              <marker date="1528496849096" expanded="true" signature="2419:2434" ph="p_def_ad_height" />
+              <marker date="1528496849096" expanded="true" signature="2443:2453" ph="p_ad_sizes" />
+              <marker date="1528496849096" expanded="true" signature="2462:2474" ph="country_code" />
+              <marker date="1528496849096" expanded="true" signature="2483:2501" ph="p_req_deliv_medium" />
+              <marker date="1528496849096" expanded="true" signature="2510:2527" ph="p_mobl_app_bundle" />
+              <marker date="1528496849096" expanded="true" signature="2536:2551" ph="p_mobl_app_name" />
+              <marker date="1528496849096" expanded="true" signature="2560:2566" ph="is_mkt" />
+              <marker date="1528496849096" expanded="true" signature="2575:2586" ph="p_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="2595:2610" ph="p_mkt_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2619:2638" ph="p_mkt_natural_floor" />
+              <marker date="1528496849096" expanded="true" signature="2647:2670" ph="p_mkt_nat…_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2679:2687" ph="p_mkt_op" />
+              <marker date="1528496849096" expanded="true" signature="2696:2705" ph="p_op_coin" />
+              <marker date="1528496849096" expanded="true" signature="2714:2728" ph="p_op_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="2737:2755" ph="p_op_mkt_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2764:2786" ph="p_op_mkt_…ural_floor" />
+              <marker date="1528496849096" expanded="true" signature="2795:2821" ph="p_op_mkt_…_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2830:2843" ph="a_platform_id" />
+              <marker date="1528496849096" expanded="true" signature="2852:2873" ph="advertise…account_nk" />
+              <marker date="1528496849096" expanded="true" signature="2882:2890" ph="order_nk" />
+              <marker date="1528496849096" expanded="true" signature="2899:2911" ph="line_item_nk" />
+              <marker date="1528496849096" expanded="true" signature="2920:2925" ph="ad_nk" />
+              <marker date="1528496849096" expanded="true" signature="2934:2943" ph="a_ad_size" />
+              <marker date="1528496849096" expanded="true" signature="2952:2958" ph="a_coin" />
+              <marker date="1528496849096" expanded="true" signature="2967:2975" ph="a_mkt_op" />
+              <marker date="1528496849096" expanded="true" signature="2984:2991" ph="wintype" />
+              <marker date="1528496849096" expanded="true" signature="3000:3010" ph="package_nk" />
+              <marker date="1528496849096" expanded="true" signature="3019:3026" ph="deal_nk" />
+              <marker date="1528496849096" expanded="true" signature="3035:3048" ph="x_bidder_elig" />
+              <marker date="1528496849096" expanded="true" signature="3057:3077" ph="p_mapped_adunit_type" />
+              <marker date="1528496849096" expanded="true" signature="3086:3097" ph="p_targetcpm" />
+              <marker date="1528496849096" expanded="true" signature="3106:3120" ph="p_op_targetcpm" />
+              <marker date="1528496849096" expanded="true" signature="3129:3137" ph="p_medium" />
+              <marker date="1528496849096" expanded="true" signature="3146:3160" ph="u_mobl_dev_cat" />
+              <marker date="1528496849096" expanded="true" signature="3169:3182" ph="is_mobile_app" />
+              <marker date="1528496849096" expanded="true" signature="3191:3219" ph="p_adunit_…ion_format" />
+              <marker date="1528496849096" expanded="true" signature="3228:3259" ph="p_adunit_…_subformat" />
+              <marker date="1528496849096" expanded="true" signature="3268:3284" ph="x_gd_platform_id" />
+              <marker date="1528496849096" expanded="true" signature="3293:3308" ph="x_gd_package_id" />
+              <marker date="1528496849096" expanded="true" signature="3317:3329" ph="x_gd_deal_id" />
+              <marker date="1528496849096" expanded="true" signature="3338:3360" ph="x_exchang…ee_applied" />
+              <marker date="1528496849096" expanded="true" signature="3369:3384" ph="x_apply_pd_fees" />
+              <marker date="1528496849096" expanded="true" signature="3393:3406" ph="deal_win_type" />
+              <marker date="1528496849096" expanded="true" signature="3415:3423" ph="x_bidout" />
+              <marker date="1528496849096" expanded="true" signature="3432:3455" ph="p_ext_sup…partner_id" />
+              <marker date="1528496849096" expanded="true" signature="3464:3482" ph="p_ext_auction_type" />
+              <marker date="1528496849096" expanded="true" signature="3491:3513" ph="p_ext_cp_…rency_code" />
+              <marker date="1528496849096" expanded="true" signature="3522:3540" ph="sales_channel_code" />
+              <marker date="1528496849096" expanded="true" signature="3549:3560" ph="x_price_won" />
+              <marker date="1528496849096" expanded="true" signature="3569:3585" ph="x_pd_fee_applied" />
+              <marker date="1528496849096" expanded="true" signature="3594:3604" ph="x_rewarded" />
+              <marker date="1528496849096" expanded="true" signature="3609:4519" ph="metrics: &lt;32 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="3626:3638" ph="tot_requests" />
+              <marker date="1528496849096" expanded="true" signature="3647:3662" ph="tot_discard_req" />
+              <marker date="1528496849096" expanded="true" signature="3671:3687" ph="tot_mkt_elig_req" />
+              <marker date="1528496849096" expanded="true" signature="3696:3707" ph="tot_mkt_req" />
+              <marker date="1528496849096" expanded="true" signature="3716:3728" ph="tot_auctions" />
+              <marker date="1528496849096" expanded="true" signature="3737:3746" ph="tot_fills" />
+              <marker date="1528496849096" expanded="true" signature="3755:3770" ph="tot_impressions" />
+              <marker date="1528496849096" expanded="true" signature="3779:3803" ph="tot_billa…mpressions" />
+              <marker date="1528496849096" expanded="true" signature="3812:3824" ph="tot_fallback" />
+              <marker date="1528496849096" expanded="true" signature="3833:3843" ph="tot_clicks" />
+              <marker date="1528496849096" expanded="true" signature="3852:3863" ph="tot_a_spend" />
+              <marker date="1528496849096" expanded="true" signature="3872:3887" ph="tot_usd_a_spend" />
+              <marker date="1528496849096" expanded="true" signature="3896:3909" ph="tot_p_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3918:3935" ph="tot_usd_p_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3944:3960" ph="tot_p_op_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3969:3989" ph="tot_usd_p_op_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3998:4024" ph="tot_p_mkt…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4033:4063" ph="tot_usd_p…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4072:4098" ph="tot_a_mkt…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4107:4137" ph="tot_usd_a…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4146:4167" ph="tot_count…_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4176:4195" ph="tot_sum_p_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4204:4228" ph="tot_count…_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4237:4272" ph="tot_pub_e…ring_price" />
+              <marker date="1528496849096" expanded="true" signature="4281:4309" ph="tot_all_c…rice_count" />
+              <marker date="1528496849096" expanded="true" signature="4318:4340" ph="tot_sum_p…_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4349:4369" ph="tot_view_conversions" />
+              <marker date="1528496849096" expanded="true" signature="4378:4399" ph="tot_click…onversions" />
+              <marker date="1528496849096" expanded="true" signature="4408:4434" ph="tot_raw_c…on_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4443:4467" ph="tot_raw_c…sion_spend" />
+              <marker date="1528496849096" expanded="true" signature="4476:4495" ph="tot_fp_mkt_elig_req" />
+              <marker date="1528496849096" expanded="true" signature="4504:4519" ph="tot_p_gross_rev" />
+              <marker date="1528496849096" expanded="true" signature="4535:4538" ph="UTC" />
+              <marker date="1528496849096" expanded="true" signature="4543:7498" ph="time_rollups: &lt;4 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="4887:5586" ph="advertiser_day: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="4911:5001" ph="affected: &lt;2 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="4946:4957" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="4991:5001" ph="account_nk" />
+              <marker date="1528496849096" expanded="true" signature="5053:5109" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5069:5085" ph="advt_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="5096:5109" ph="advt_date_sid" />
+              <marker date="1528496849096" expanded="true" signature="5126:5156" ph="ox_transa…ourly_fact" />
+              <marker date="1528496849096" expanded="true" signature="5172:5206" ph="advt_ox_t…daily_fact" />
+              <marker date="1528496849096" expanded="true" signature="5294:5304" ph="advertiser" />
+              <marker date="1528496849096" expanded="true" signature="5323:5326" ph="day" />
+              <marker date="1528496849096" expanded="true" signature="5348:5361" ph="utc_timestamp" />
+              <marker date="1528496849096" expanded="true" signature="5388:5404" ph="advt_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="5439:5492" ph="grid_advt…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="5534:5586" ph="grid_ox_t…our_loaded" />
+              <marker date="1528496849096" expanded="true" signature="5593:6271" ph="platform_day: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5615:5661" ph="affected: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5650:5661" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="5713:5777" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5729:5749" ph="instance_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="5760:5777" ph="instance_date_sid" />
+              <marker date="1528496849096" expanded="true" signature="5794:5824" ph="ox_transa…ourly_fact" />
+              <marker date="1528496849096" expanded="true" signature="5840:5880" ph="ox_transa…instancetz" />
+              <marker date="1528496849096" expanded="true" signature="5968:5976" ph="platform" />
+              <marker date="1528496849096" expanded="true" signature="5995:5998" ph="day" />
+              <marker date="1528496849096" expanded="true" signature="6020:6033" ph="utc_timestamp" />
+              <marker date="1528496849096" expanded="true" signature="6060:6080" ph="instance_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="6115:6177" ph="grid_ox_t…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="6219:6271" ph="grid_ox_t…our_loaded" />
+              <marker date="1528496849096" expanded="true" signature="6278:6933" ph="day: &lt;11 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6291:6337" ph="affected: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6326:6337" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="6389:6443" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6405:6420" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="6431:6443" ph="utc_date_sid" />
+              <marker date="1528496849096" expanded="true" signature="6460:6490" ph="ox_transa…ourly_fact" />
+              <marker date="1528496849096" expanded="true" signature="6506:6535" ph="ox_transa…daily_fact" />
+              <marker date="1528496849096" expanded="true" signature="6623:6626" ph="UTC" />
+              <marker date="1528496849096" expanded="true" signature="6645:6648" ph="day" />
+              <marker date="1528496849096" expanded="true" signature="6670:6683" ph="utc_timestamp" />
+              <marker date="1528496849096" expanded="true" signature="6710:6725" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="6760:6806" ph="grid_ox_t…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="6848:6900" ph="grid_ox_t…our_loaded" />
+              <marker date="1528496849096" expanded="true" signature="6928:6933" ph="month" />
+              <marker date="1528496849096" expanded="true" signature="6940:7498" ph="month: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6955:7001" ph="affected: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6990:7001" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="7054:7109" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="7070:7085" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="7096:7109" ph="utc_month_sid" />
+              <marker date="1528496849096" expanded="true" signature="7126:7155" ph="ox_transa…daily_fact" />
+              <marker date="1528496849096" expanded="true" signature="7171:7202" ph="ox_transa…nthly_fact" />
+              <marker date="1528496849096" expanded="true" signature="7221:7224" ph="UTC" />
+              <marker date="1528496849096" expanded="true" signature="7243:7248" ph="month" />
+              <marker date="1528496849096" expanded="true" signature="7270:7285" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="7312:7327" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="7362:7410" ph="grid_ox_t…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="7413:7498" ph="month: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="7452:7498" ph="grid_ox_t…_last_hour" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/rolluper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/rollup_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7125">
+          <caret line="475" column="67" lean-forward="false" selection-start-line="475" selection-start-column="67" selection-end-line="475" selection-end-column="67" />
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/rollup_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/bootstrap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#148#177#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+          <folding>
+            <element signature="e#49#63#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="e#47#56#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/rolluper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/_base.py" />
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/uploader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="86" column="48" lean-forward="true" selection-start-line="72" selection-start-column="11" selection-end-line="86" selection-end-column="48" />
+          <folding>
+            <element signature="e#54#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/table_rollup.yaml" />
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/roller.yaml" />
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/content_topics.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/odfi_schema.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/download.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/_base.py" />
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/add_new.py" />
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/rollup_job.yaml" />
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/commands.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/content_topics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/jobs/odfi_etls/test_job_one.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/revenue_queue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/downloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-919">
+          <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#39#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/rolluper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding>
+            <element signature="e#1#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/adjustment_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#60#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/bootstrap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="27" />
+          <folding>
+            <element signature="e#148#177#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/job_queue_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="62" column="77" lean-forward="false" selection-start-line="62" selection-start-column="63" selection-end-line="62" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/process_queue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/process_queue.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="161" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="161" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/job_queue_lib.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/rollup_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="41" />
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+          <folding>
+            <element signature="e#49#63#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/common/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/rollup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="37" />
+          <folding>
+            <element signature="e#1843#1883#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/argparse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="59" column="104" lean-forward="false" selection-start-line="59" selection-start-column="98" selection-end-line="59" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/_loader_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/adjustment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#119#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/adjustmenter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3405">
+          <caret line="227" column="0" lean-forward="false" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/actions/actors/uploader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="111" column="41" lean-forward="false" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
+          <folding>
+            <element signature="e#54#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/rollup.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4425">
+          <caret line="295" column="0" lean-forward="true" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="791">
+            <caret line="356" column="0" lean-forward="true" selection-start-line="356" selection-start-column="0" selection-end-line="356" selection-end-column="0" />
+            <folding>
+              <marker date="1528496849096" expanded="true" signature="577:618" ph="DB_CONNECTION: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="615:618" ph="..." />
+              <marker date="1528496849096" expanded="true" signature="811:817" ph="MyFeed" />
+              <marker date="1528496849096" expanded="true" signature="945:956" ph="true" />
+              <marker date="1528496849096" expanded="true" signature="1033:1055" ph="my_load_s…e_var_name" />
+              <marker date="1528496849096" expanded="true" signature="1167:1274" ph="AUXILIARY…STATE_VARS: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="1221:1244" ph="aux_load_…e_name_one" />
+              <marker date="1528496849096" expanded="true" signature="1251:1274" ph="aux_load_…e_name_two" />
+              <marker date="1528496849096" expanded="true" signature="1370:1424" ph="DEPENDS_ON: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="1409:1413" ph="job1" />
+              <marker date="1528496849096" expanded="true" signature="1420:1424" ph="job2" />
+              <marker date="1528496849096" expanded="true" signature="1474:2104" ph="ETL_STATEMENTS: &lt;4 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="1535:1555" ph="SQL statement to run" />
+              <marker date="1528496849096" expanded="true" signature="1622:1650" ph="A title o…escription" />
+              <marker date="1528496849096" expanded="true" signature="1663:1683" ph="SQL statement to run" />
+              <marker date="1528496849096" expanded="true" signature="1726:1799" ph="A descrip… returned." />
+              <marker date="1528496849096" expanded="true" signature="1819:1919" ph="Query tha… stop here" />
+              <marker date="1528496849096" expanded="true" signature="1965:1992" ph="A descrip… the check" />
+              <marker date="1528496849096" expanded="true" signature="2015:2049" ph="SELECT Tr…m a query." />
+              <marker date="1528496849096" expanded="true" signature="2062:2104" ph="SQL stmt …k is true." />
+              <marker date="1528496849096" expanded="true" signature="2190:7498" ph="ROLLUP_OX…ACTION_SUM: &lt;2 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="2207:7498" ph="OX_TRANSACTION_SUM: &lt;4 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="2231:3604" ph="keys: &lt;60 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="2245:2258" ph="x_platform_id" />
+              <marker date="1528496849096" expanded="true" signature="2267:2287" ph="publisher_account_nk" />
+              <marker date="1528496849096" expanded="true" signature="2296:2303" ph="site_nk" />
+              <marker date="1528496849096" expanded="true" signature="2312:2321" ph="p_channel" />
+              <marker date="1528496849096" expanded="true" signature="2330:2336" ph="domain" />
+              <marker date="1528496849096" expanded="true" signature="2345:2354" ph="category1" />
+              <marker date="1528496849096" expanded="true" signature="2363:2372" ph="category2" />
+              <marker date="1528496849096" expanded="true" signature="2381:2387" ph="p_coin" />
+              <marker date="1528496849096" expanded="true" signature="2396:2410" ph="p_def_ad_width" />
+              <marker date="1528496849096" expanded="true" signature="2419:2434" ph="p_def_ad_height" />
+              <marker date="1528496849096" expanded="true" signature="2443:2453" ph="p_ad_sizes" />
+              <marker date="1528496849096" expanded="true" signature="2462:2474" ph="country_code" />
+              <marker date="1528496849096" expanded="true" signature="2483:2501" ph="p_req_deliv_medium" />
+              <marker date="1528496849096" expanded="true" signature="2510:2527" ph="p_mobl_app_bundle" />
+              <marker date="1528496849096" expanded="true" signature="2536:2551" ph="p_mobl_app_name" />
+              <marker date="1528496849096" expanded="true" signature="2560:2566" ph="is_mkt" />
+              <marker date="1528496849096" expanded="true" signature="2575:2586" ph="p_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="2595:2610" ph="p_mkt_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2619:2638" ph="p_mkt_natural_floor" />
+              <marker date="1528496849096" expanded="true" signature="2647:2670" ph="p_mkt_nat…_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2679:2687" ph="p_mkt_op" />
+              <marker date="1528496849096" expanded="true" signature="2696:2705" ph="p_op_coin" />
+              <marker date="1528496849096" expanded="true" signature="2714:2728" ph="p_op_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="2737:2755" ph="p_op_mkt_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2764:2786" ph="p_op_mkt_…ural_floor" />
+              <marker date="1528496849096" expanded="true" signature="2795:2821" ph="p_op_mkt_…_floor_usd" />
+              <marker date="1528496849096" expanded="true" signature="2830:2843" ph="a_platform_id" />
+              <marker date="1528496849096" expanded="true" signature="2852:2873" ph="advertise…account_nk" />
+              <marker date="1528496849096" expanded="true" signature="2882:2890" ph="order_nk" />
+              <marker date="1528496849096" expanded="true" signature="2899:2911" ph="line_item_nk" />
+              <marker date="1528496849096" expanded="true" signature="2920:2925" ph="ad_nk" />
+              <marker date="1528496849096" expanded="true" signature="2934:2943" ph="a_ad_size" />
+              <marker date="1528496849096" expanded="true" signature="2952:2958" ph="a_coin" />
+              <marker date="1528496849096" expanded="true" signature="2967:2975" ph="a_mkt_op" />
+              <marker date="1528496849096" expanded="true" signature="2984:2991" ph="wintype" />
+              <marker date="1528496849096" expanded="true" signature="3000:3010" ph="package_nk" />
+              <marker date="1528496849096" expanded="true" signature="3019:3026" ph="deal_nk" />
+              <marker date="1528496849096" expanded="true" signature="3035:3048" ph="x_bidder_elig" />
+              <marker date="1528496849096" expanded="true" signature="3057:3077" ph="p_mapped_adunit_type" />
+              <marker date="1528496849096" expanded="true" signature="3086:3097" ph="p_targetcpm" />
+              <marker date="1528496849096" expanded="true" signature="3106:3120" ph="p_op_targetcpm" />
+              <marker date="1528496849096" expanded="true" signature="3129:3137" ph="p_medium" />
+              <marker date="1528496849096" expanded="true" signature="3146:3160" ph="u_mobl_dev_cat" />
+              <marker date="1528496849096" expanded="true" signature="3169:3182" ph="is_mobile_app" />
+              <marker date="1528496849096" expanded="true" signature="3191:3219" ph="p_adunit_…ion_format" />
+              <marker date="1528496849096" expanded="true" signature="3228:3259" ph="p_adunit_…_subformat" />
+              <marker date="1528496849096" expanded="true" signature="3268:3284" ph="x_gd_platform_id" />
+              <marker date="1528496849096" expanded="true" signature="3293:3308" ph="x_gd_package_id" />
+              <marker date="1528496849096" expanded="true" signature="3317:3329" ph="x_gd_deal_id" />
+              <marker date="1528496849096" expanded="true" signature="3338:3360" ph="x_exchang…ee_applied" />
+              <marker date="1528496849096" expanded="true" signature="3369:3384" ph="x_apply_pd_fees" />
+              <marker date="1528496849096" expanded="true" signature="3393:3406" ph="deal_win_type" />
+              <marker date="1528496849096" expanded="true" signature="3415:3423" ph="x_bidout" />
+              <marker date="1528496849096" expanded="true" signature="3432:3455" ph="p_ext_sup…partner_id" />
+              <marker date="1528496849096" expanded="true" signature="3464:3482" ph="p_ext_auction_type" />
+              <marker date="1528496849096" expanded="true" signature="3491:3513" ph="p_ext_cp_…rency_code" />
+              <marker date="1528496849096" expanded="true" signature="3522:3540" ph="sales_channel_code" />
+              <marker date="1528496849096" expanded="true" signature="3549:3560" ph="x_price_won" />
+              <marker date="1528496849096" expanded="true" signature="3569:3585" ph="x_pd_fee_applied" />
+              <marker date="1528496849096" expanded="true" signature="3594:3604" ph="x_rewarded" />
+              <marker date="1528496849096" expanded="true" signature="3609:4519" ph="metrics: &lt;32 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="3626:3638" ph="tot_requests" />
+              <marker date="1528496849096" expanded="true" signature="3647:3662" ph="tot_discard_req" />
+              <marker date="1528496849096" expanded="true" signature="3671:3687" ph="tot_mkt_elig_req" />
+              <marker date="1528496849096" expanded="true" signature="3696:3707" ph="tot_mkt_req" />
+              <marker date="1528496849096" expanded="true" signature="3716:3728" ph="tot_auctions" />
+              <marker date="1528496849096" expanded="true" signature="3737:3746" ph="tot_fills" />
+              <marker date="1528496849096" expanded="true" signature="3755:3770" ph="tot_impressions" />
+              <marker date="1528496849096" expanded="true" signature="3779:3803" ph="tot_billa…mpressions" />
+              <marker date="1528496849096" expanded="true" signature="3812:3824" ph="tot_fallback" />
+              <marker date="1528496849096" expanded="true" signature="3833:3843" ph="tot_clicks" />
+              <marker date="1528496849096" expanded="true" signature="3852:3863" ph="tot_a_spend" />
+              <marker date="1528496849096" expanded="true" signature="3872:3887" ph="tot_usd_a_spend" />
+              <marker date="1528496849096" expanded="true" signature="3896:3909" ph="tot_p_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3918:3935" ph="tot_usd_p_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3944:3960" ph="tot_p_op_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3969:3989" ph="tot_usd_p_op_revenue" />
+              <marker date="1528496849096" expanded="true" signature="3998:4024" ph="tot_p_mkt…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4033:4063" ph="tot_usd_p…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4072:4098" ph="tot_a_mkt…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4107:4137" ph="tot_usd_a…or_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4146:4167" ph="tot_count…_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4176:4195" ph="tot_sum_p_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4204:4228" ph="tot_count…_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4237:4272" ph="tot_pub_e…ring_price" />
+              <marker date="1528496849096" expanded="true" signature="4281:4309" ph="tot_all_c…rice_count" />
+              <marker date="1528496849096" expanded="true" signature="4318:4340" ph="tot_sum_p…_mkt_floor" />
+              <marker date="1528496849096" expanded="true" signature="4349:4369" ph="tot_view_conversions" />
+              <marker date="1528496849096" expanded="true" signature="4378:4399" ph="tot_click…onversions" />
+              <marker date="1528496849096" expanded="true" signature="4408:4434" ph="tot_raw_c…on_revenue" />
+              <marker date="1528496849096" expanded="true" signature="4443:4467" ph="tot_raw_c…sion_spend" />
+              <marker date="1528496849096" expanded="true" signature="4476:4495" ph="tot_fp_mkt_elig_req" />
+              <marker date="1528496849096" expanded="true" signature="4504:4519" ph="tot_p_gross_rev" />
+              <marker date="1528496849096" expanded="true" signature="4535:4538" ph="UTC" />
+              <marker date="1528496849096" expanded="true" signature="4543:7498" ph="time_rollups: &lt;4 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="4887:5586" ph="advertiser_day: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="4911:5001" ph="affected: &lt;2 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="4946:4957" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="4991:5001" ph="account_nk" />
+              <marker date="1528496849096" expanded="true" signature="5053:5109" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5069:5085" ph="advt_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="5096:5109" ph="advt_date_sid" />
+              <marker date="1528496849096" expanded="true" signature="5126:5156" ph="ox_transa…ourly_fact" />
+              <marker date="1528496849096" expanded="true" signature="5172:5206" ph="advt_ox_t…daily_fact" />
+              <marker date="1528496849096" expanded="true" signature="5294:5304" ph="advertiser" />
+              <marker date="1528496849096" expanded="true" signature="5323:5326" ph="day" />
+              <marker date="1528496849096" expanded="true" signature="5348:5361" ph="utc_timestamp" />
+              <marker date="1528496849096" expanded="true" signature="5388:5404" ph="advt_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="5439:5492" ph="grid_advt…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="5534:5586" ph="grid_ox_t…our_loaded" />
+              <marker date="1528496849096" expanded="true" signature="5593:6271" ph="platform_day: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5615:5661" ph="affected: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5650:5661" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="5713:5777" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="5729:5749" ph="instance_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="5760:5777" ph="instance_date_sid" />
+              <marker date="1528496849096" expanded="true" signature="5794:5824" ph="ox_transa…ourly_fact" />
+              <marker date="1528496849096" expanded="true" signature="5840:5880" ph="ox_transa…instancetz" />
+              <marker date="1528496849096" expanded="true" signature="5968:5976" ph="platform" />
+              <marker date="1528496849096" expanded="true" signature="5995:5998" ph="day" />
+              <marker date="1528496849096" expanded="true" signature="6020:6033" ph="utc_timestamp" />
+              <marker date="1528496849096" expanded="true" signature="6060:6080" ph="instance_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="6115:6177" ph="grid_ox_t…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="6219:6271" ph="grid_ox_t…our_loaded" />
+              <marker date="1528496849096" expanded="true" signature="6278:6933" ph="day: &lt;11 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6291:6337" ph="affected: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6326:6337" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="6389:6443" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6405:6420" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="6431:6443" ph="utc_date_sid" />
+              <marker date="1528496849096" expanded="true" signature="6460:6490" ph="ox_transa…ourly_fact" />
+              <marker date="1528496849096" expanded="true" signature="6506:6535" ph="ox_transa…daily_fact" />
+              <marker date="1528496849096" expanded="true" signature="6623:6626" ph="UTC" />
+              <marker date="1528496849096" expanded="true" signature="6645:6648" ph="day" />
+              <marker date="1528496849096" expanded="true" signature="6670:6683" ph="utc_timestamp" />
+              <marker date="1528496849096" expanded="true" signature="6710:6725" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="6760:6806" ph="grid_ox_t…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="6848:6900" ph="grid_ox_t…our_loaded" />
+              <marker date="1528496849096" expanded="true" signature="6928:6933" ph="month" />
+              <marker date="1528496849096" expanded="true" signature="6940:7498" ph="month: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6955:7001" ph="affected: &lt;1 key&gt;" />
+              <marker date="1528496849096" expanded="true" signature="6990:7001" ph="platform_id" />
+              <marker date="1528496849096" expanded="true" signature="7054:7109" ph="keys: &lt;2 items&gt;" />
+              <marker date="1528496849096" expanded="true" signature="7070:7085" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="7096:7109" ph="utc_month_sid" />
+              <marker date="1528496849096" expanded="true" signature="7126:7155" ph="ox_transa…daily_fact" />
+              <marker date="1528496849096" expanded="true" signature="7171:7202" ph="ox_transa…nthly_fact" />
+              <marker date="1528496849096" expanded="true" signature="7221:7224" ph="UTC" />
+              <marker date="1528496849096" expanded="true" signature="7243:7248" ph="month" />
+              <marker date="1528496849096" expanded="true" signature="7270:7285" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="7312:7327" ph="utc_rollup_date" />
+              <marker date="1528496849096" expanded="true" signature="7362:7410" ph="grid_ox_t…_last_hour" />
+              <marker date="1528496849096" expanded="true" signature="7413:7498" ph="month: &lt;10 keys&gt;" />
+              <marker date="1528496849096" expanded="true" signature="7452:7498" ph="grid_ox_t…_last_hour" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/adjustment.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ox_dw_snowflake_odfi_etl/app_config/daily_adjustment.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="950" column="117" lean-forward="true" selection-start-line="950" selection-start-column="117" selection-end-line="950" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,77 @@
+ACTION_TYPES:
+    - clone
+    - create
+    - delete
+    - hard-delete
+    - harmonize
+    - load
+    - running
+    - update
+
+OBJECT_CONFIG:
+    _destinations:
+        - any_match
+    type:
+        _destinations:
+            - any_type_match
+        type_01:
+            _destinations:
+                - type_01_match
+                - test_data
+        type_02:
+            _destinations:
+                - type_02_match
+            type_full:
+                type_02_full:
+                    _destinations:
+                        - type_02_full_match
+        type_03:
+            my_list:
+                - _destinations:
+                    - type_03_match
+        type_04:
+            my_list:
+                - _destinations:
+                    - type_04_match
+                - 0:
+                    item0:
+                        _destinations:
+                            - type_04_0_match
+                - 1:
+                    item2:
+                        _destinations:
+                            - NON_MATCH
+
+SCHEMAS:
+    any_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+        - col_02: varchar(100)
+    any_type_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+    type_01_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+    type_02_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+    type_02_full_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+    type_03_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+    type_04_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+    type_04_0_match: !!omap
+        - id: int not null
+        - col_01: varchar(100)
+    test_data: !!omap
+        - revision: int
+        - deleted: varchar 1
+        - id: varchar 255
+    NON_MATCH: !!omap
+        - id: int not null
+        - col_01: varchar(100)

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset revision="1" uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/datasets/16010920/" recordCount="191" id="16010920" dataSize="77186" status="NOT_READY">
+	<serial>1969</serial>
+	<readableInterval>2017-08-29_19</readableInterval>
+	<startTimestamp>2017-08-29 19:00:00 UTC</startTimestamp>
+	<endTimestamp>2017-08-29 20:00:00 UTC</endTimestamp>
+	<feed uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/feeds/9999/" name="NotReady" id="9999"></feed>
+	<schema version="11" locator="http://qa-odfi-data-api.xv.dc.openx.org/datasets/schema/NotReady,11.xml" uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/schemas/NotReady,11/" name="NotReady"></schema>
+	<parts uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/datasets/16010920/parts/">
+		<part uri="http://qa-odfi-data-api.xv.dc.openx.org/ODFI/rest/parts/133974100/" recordCount="1" index="1" locator="http://qa-odfi-data-api.xv.dc.openx.org/datasets/NotReady/2017-08/NotReady-20170829190000-1504033200-00-rec-1-md5-cd0bc0f34e78ef5a26b88642b459a412.txt.gz" id="133974100" gzipped="true" digest="cd0bc0f34e78ef5a26b88642b459a412" dataSize="835" compressionType="GZIP"></part>
+	</parts>
+	<dateCreated>2017-08-29 22:35:01 UTC</dateCreated>
+</dataset>

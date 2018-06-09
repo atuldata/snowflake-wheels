@@ -1,0 +1,18 @@
+DESTALE:
+    - DELETE FROM %(SRC_TABLE)s
+       WHERE id IN (SELECT id
+                      FROM %(SRC_TABLE)s r
+                      JOIN %(DEST_SCHEMA)s.test_data d
+                           ON r.id = d.id AND r.revision < d.revision)
+
+DELETE:
+    - DELETE FROM %(DEST_SCHEMA)s.test_data
+       WHERE id in (SELECT id FROM %(SRC_TABLE)s)
+
+INSERT:
+    - INSERT INTO %(DEST_SCHEMA)s.test_data
+      (revision, deleted, id)
+      SELECT DISTINCT revision,
+                      deleted,
+                      id
+        FROM %(SRC_TABLE)s

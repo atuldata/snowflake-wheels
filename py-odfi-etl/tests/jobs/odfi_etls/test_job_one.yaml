@@ -1,0 +1,44 @@
+FEED_NAME: TrafficReport
+NEEDS_CONTENT_TOPICS: !!bool true
+LOAD_STATE_VAR: odfi_test_job_one_last_hour_loaded
+ORDER_BY_CLAUSE: 'ORDER BY PublisherPlatformID, PublisherAdUnitID, PublisherContentTopic'
+SEGMENTATION_CLAUSE: 'SEGMENTED BY hash(PublisherPlatformID, PublisherAdUnitID, PublisherContentTopic) ALL NODES'
+USE_TEMP_TABLES: !!bool False
+
+ETL_STATEMENTS:
+    # CLEAN_HOUR_TMP
+    - CREATE TEMPORARY TABLE IF NOT EXISTS tmp_oxts_hour(tmpst timestamp) UNSEGMENTED ALL NODES
+    - TRUNCATE TABLE tmp_oxts_hour
+    # LOG_HOUR:
+    - INSERT INTO tmp_oxts_hour VALUES(TO_TIMESTAMP(?(READABLE_INTERVAL)?, 'YYYY-MM-DD_HH24'))
+    # DELETE_EXISTING_DATA_SQL: 
+    - label: Delete existing data - supply_demand_geo_hourly_fact
+      check_sql: SELECT count(*) FROM (SELECT utc_date_sid FROM supply_demand_geo_hourly_fact WHERE utc_date_sid = ?(UTC_DATE_SID)? and utc_hour_sid = ?(UTC_HOUR_SID)? and tot_view_conversions+tot_click_conversions = 0 LIMIT 1) chk
+      stmt: DELETE FROM supply_demand_geo_hourly_fact WHERE utc_date_sid = ?(UTC_DATE_SID)? and utc_hour_sid = ?(UTC_HOUR_SID)? and tot_view_conversions + tot_click_conversions = 0
+    # FINAL_SQL: 
+    - label: supply_demand_geo_hourly_fact
+      stmt: INSERT /*+ direct */ INTO supply_demand_geo_hourly_fact
+            (utc_date_sid, utc_hour_sid, publisher_account_nk, ad_unit_nk, tot_requests, tot_view_conversions, tot_click_conversions)
+            SELECT TO_NUMBER(TO_CHAR(?(DATETIME)?::Hour, 'YYYYMMDD')) utc_date_sid,
+                   TO_NUMBER(TO_CHAR(?(DATETIME)?::Hour, 'HH24')) utc_hour_sid,
+                   ox.PublisherAccountID,
+                   ox.PublisherAdUnitID,
+                   SUM(ox.requests) AS tot_requests,
+                   0 as tot_view_conversions,
+                   0 as tot_click_conversions
+            FROM %(STAGING_TABLE)s ox
+            LEFT JOIN content_topic_group_dim ct ON ( ox.PublisherContentTopic = ct.content_topic_group_id_string AND ox.PublisherPlatformID = ct.platform_id and ox.PublisherAdUnitID = ct.ad_unit_nk)
+            GROUP BY  1,  2,  3,  4
+    # RS_LOG_SQL: 
+    - MERGE INTO rollup_state USING tmp_oxts_hour source ON (rollup_state.rs_utc_hour = source.tmpst)
+      WHEN MATCHED THEN UPDATE SET has_oxts=1, new_input_data=1
+      WHEN NOT MATCHED THEN INSERT (rs_utc_hour, has_oxts, has_conv, new_input_data) VALUES (source.tmpst, TRUE, FALSE, TRUE)
+    - UPDATE rollup_state SET new_input_data = 1
+      WHERE rs_utc_hour BETWEEN TO_TIMESTAMP(?(READABLE_INTERVAL)?,'YYYY-MM-DD_HH24') AND TIMESTAMPADD('HOUR', 23, TO_TIMESTAMP(?(READABLE_INTERVAL)?,'YYYY-MM-DD_HH24')) AND has_oxts = 1
+    # DATA_CHANGE_TABLES:
+    - INSERT INTO data_change(
+          table_name, utc_start_datetime, utc_end_datetime, process_name, utc_modified_datetime)
+      VALUES('supply_demand_geo_hourly_fact', 
+             TO_TIMESTAMP(?(READABLE_INTERVAL)?, 'YYYY-MM-DD_HH24'),
+             TO_TIMESTAMP(?(READABLE_INTERVAL)?, 'YYYY-MM-DD_HH24'),
+             ?(JOB_NAME)?, getutcdate())

@@ -1,0 +1,7 @@
+FILE_FORMAT: csv
+
+# Interval in minutes to run the batch loads.
+FLUSH_PERIOD: 2
+
+# How many concurrent loaders can run?
+MAX_LOADERS: 5

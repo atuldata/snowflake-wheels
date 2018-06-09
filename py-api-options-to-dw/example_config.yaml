@@ -1,0 +1,20 @@
+# Note:
+# keys and values are a list of key value pairs where key: value is source_name: dest_name mapping.
+# values can include destination columns that do not exist in the source as in for transformations.
+# For transformations, the staging table is %(temp_table)s
+- example_table
+    sources:  # Can be more than one as long as the data you need matches name
+        - riak_option_name_1
+        - riak_option_name_2
+    keys:  # Can be multiple but usually only one
+        - source_key_1: destination_key_1
+    values:  # Can be multiple. Include all that you need.
+        - source_value_1: dest_value_1
+        - new_column_1: dest_value_2  # This column does not exist in the source.
+    # Optional below
+    key_sep: ';'  # Used for spliting keys into multiple values. The rows returns will multiply by this value
+    permutations: boolean  # Special case for building from a DW source all permutations of a particular key(one only) with value(one only)
+    transformations:  # Here you can have an ordered list of SQL to run after the data is imported into the DW staging table
+        - UPDATE %(temp_table)s set col_1 = 1
+        - UPDATE %(temp_table)s set col_2 = 2
+        - etc...

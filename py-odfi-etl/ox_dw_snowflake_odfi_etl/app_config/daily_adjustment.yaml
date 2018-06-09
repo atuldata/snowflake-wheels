@@ -1,0 +1,974 @@
+CLEAN_TMP : 
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_revshare_platform_ready
+      (ad_unit_nk int,
+       platform_id varchar(255),
+       instance_date date)"
+  - "TRUNCATE TABLE tmp_revshare_platform_ready"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_daily_surplus
+      ( ad_unit_nk int,
+        platform_id varchar(255),
+        potential_daily_surplus numeric(17,6))"
+  - "TRUNCATE TABLE tmp_daily_surplus"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_sum_of_weights
+      ( ad_unit_nk int,
+        platform_id varchar(255),
+        sum_of_weights numeric(17,6))"
+  - "TRUNCATE TABLE tmp_sum_of_weights"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_new_revenue
+       ( row_id int,
+         p_platform_id VARCHAR(40),
+         tot_new_publisher_revenue numeric(17,6),
+         tot_new_network_revenue numeric(17,6))"
+  - "TRUNCATE TABLE tmp_new_revenue"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_cpd_fixed_lineitem_ready 
+       (platform_id varchar(40),
+        line_item_nk int,
+        advertiser_account_timezone varchar(100),
+        line_item_pricing_model_code varchar(100),
+        start_time datetime,
+        end_time datetime, 
+        fixedprice_days_remaining int)"
+  - "TRUNCATE TABLE tmp_cpd_fixed_lineitem_ready"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_fixed_lineitem_total_spent 
+       (platform_id varchar(40),
+        line_item_nk int,
+        fixedprice_total_spent numeric(17,6))"
+  - "TRUNCATE TABLE tmp_fixed_lineitem_total_spent"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_cpd_daily_surplus
+       (line_item_nk  int,
+        a_platform_id varchar(40),
+        sum_of_weights int)" 
+  - "TRUNCATE TABLE tmp_cpd_daily_surplus"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_new_cpd_revenue
+       (row_id int,
+        p_platform_id varchar(40),
+        utc_date_sid int,
+        line_item_nk int,
+        tot_spend numeric( 37,26 ),
+        tot_publisher_cpd_revenue numeric( 37, 26 ),
+        tot_network_cpd_revenue numeric( 37, 26 ))"
+  - "TRUNCATE TABLE tmp_new_cpd_revenue"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_supply_fact_new_revenue
+       (utc_timestamp DATETIME NOT NULL,
+        utc_date_sid INT NOT NULL,
+        utc_hour_sid INT NOT NULL,
+        instance_timestamp DATETIME NOT NULL,
+        p_platform_id VARCHAR(40),
+        publisher_account_nk INT NOT NULL,
+        site_nk INT NOT NULL,
+        site_section_nk INT NOT NULL,
+        page_nk INT NOT NULL,
+        ad_unit_nk INT NOT NULL,
+        rev_split numeric(5,2),
+        deal_type_uid varchar(100),
+        deal_cpm numeric(37,26),
+        rev_share_enabled boolean,
+        package_nk INT,
+        deal_nk INT,
+        delivery_medium_code VARCHAR(100) NOT NULL,
+        screen_location_code VARCHAR(100) NOT NULL,
+        content_topic_group_sid INT NULL,
+        sales_channel_code VARCHAR(60) NOT NULL,
+        p_currency_code CHAR(3) NOT NULL,
+        ad_width INT NULL,
+        ad_height INT NULL,
+        ad_duration INT NULL,
+        ssp_elig boolean,
+        p_req_deliv_medium varchar(64),
+        u_can_cookie boolean,
+        p_mapped_adunit_type varchar(40),
+        u_mobl_dev_cat varchar(40),
+        is_mobile_app boolean,
+        tot_publisher_revenue DECIMAL(37,26) NOT NULL,
+        tot_network_revenue DECIMAL(37,26) NOT NULL 
+       )"
+  - "TRUNCATE TABLE tmp_supply_fact_new_revenue"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_supply_fact_new_cpd_revenue
+       (utc_timestamp DATETIME NOT NULL,
+        utc_date_sid INT NOT NULL,
+        utc_hour_sid INT NOT NULL,
+        instance_timestamp DATETIME NOT NULL,
+        p_platform_id VARCHAR(40),
+        publisher_account_nk INT NOT NULL,
+        site_nk INT NOT NULL,
+        site_section_nk INT NOT NULL,
+        page_nk INT NOT NULL,
+        ad_unit_nk INT NOT NULL,
+        rev_split numeric(5,2),
+        deal_type_uid varchar(100),
+        deal_cpm numeric(37,26),
+        rev_share_enabled boolean,
+        package_nk INT,
+        deal_nk INT,
+        delivery_medium_code VARCHAR(100) NOT NULL,
+        screen_location_code VARCHAR(100) NOT NULL,
+        content_topic_group_sid INT NULL,
+        sales_channel_code VARCHAR(60) NOT NULL,
+        p_currency_code CHAR(3) NOT NULL,
+        ad_width INT NULL,
+        ad_height INT NULL,
+        ad_duration INT NULL,
+        ssp_elig boolean,
+        p_req_deliv_medium varchar(64),
+        u_can_cookie boolean,
+        p_mapped_adunit_type varchar(40),
+        u_mobl_dev_cat varchar(40),
+        is_mobile_app boolean,
+        tot_publisher_cpd_revenue DECIMAL(37,26) NOT NULL,
+        tot_network_cpd_revenue DECIMAL(37,26) NOT NULL 
+       )"
+  - "TRUNCATE TABLE tmp_supply_fact_new_cpd_revenue"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_demand_fact_new_cpd_spend
+       (utc_timestamp DATETIME NOT NULL,
+        utc_date_sid INT NOT NULL,
+        utc_hour_sid INT NOT NULL,
+        instance_timestamp DATETIME NOT NULL,
+        advt_timestamp DATETIME NOT NULL,
+        a_platform_id VARCHAR(40),
+        advertiser_account_nk INT NOT NULL,
+        order_nk INT NOT NULL,
+        line_item_nk INT NOT NULL,
+        ad_nk INT NOT NULL,
+        line_item_pricing_model_code varchar(100),
+        line_item_pricing_rate numeric(37,26),
+        deal_nk INT,
+        sales_channel_code VARCHAR(60) NOT NULL,
+        delivery_medium_code VARCHAR(100) NOT NULL,
+        a_currency_code CHAR(3) NOT NULL,
+        ad_width INT NULL,
+        ad_height INT NULL,
+        ad_duration INT NULL,
+        ssp_elig boolean,
+        p_req_deliv_medium varchar(64),
+        u_can_cookie boolean,
+        p_mapped_adunit_type varchar(40),
+        u_mobl_dev_cat varchar(40),
+        is_mobile_app boolean,
+        tot_spend DECIMAL(37,26) NOT NULL
+       )"
+  - "TRUNCATE TABLE tmp_demand_fact_new_cpd_spend"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_supply_demand_country_new_revenue
+       (utc_timestamp timestamp NOT NULL,
+        utc_date_sid int NOT NULL,
+        utc_hour_sid int NOT NULL,
+        instance_timestamp timestamp NOT NULL,
+        advt_timestamp timestamp NOT NULL,
+        a_platform_id varchar(40),
+        p_platform_id varchar(40),
+        publisher_account_nk int NOT NULL,
+        site_nk int NOT NULL,
+        site_section_nk int NOT NULL,
+        page_nk int NOT NULL,
+        ad_unit_nk int NOT NULL,
+        rev_split numeric(5,2),
+        deal_type_uid varchar(100),
+        deal_cpm numeric(37,26),
+        rev_share_enabled boolean,
+        package_nk INT,
+        deal_nk INT,
+        advertiser_account_nk int NOT NULL,
+        order_nk int NOT NULL,
+        line_item_nk int NOT NULL,
+        ad_nk int NOT NULL,
+        line_item_pricing_model_code varchar(100),
+        line_item_pricing_rate numeric(37,26),
+        brand_nk int NOT NULL,
+        delivery_medium_code varchar(100) NOT NULL,
+        screen_location_code varchar(100) NOT NULL,
+        content_topic_group_sid int,
+        sales_channel_code varchar(60) NOT NULL,
+        p_currency_code char(3) NOT NULL,
+        a_currency_code char(3) NOT NULL,
+        country_code char(4) NOT NULL,
+        ad_width INT NULL,
+        ad_height INT NULL,
+        ad_duration int,
+        ssp_elig boolean,
+        p_req_deliv_medium varchar(64),
+        u_can_cookie boolean,
+        p_mapped_adunit_type varchar(40),
+        u_mobl_dev_cat varchar(40),
+        is_mobile_app boolean,
+        tot_publisher_revenue DECIMAL(37,26) NOT NULL,
+        tot_network_revenue DECIMAL(37,26) NOT NULL 
+       )"
+  - "TRUNCATE TABLE tmp_supply_demand_country_new_revenue"
+  - "CREATE LOCAL TEMPORARY TABLE IF NOT EXISTS tmp_supply_demand_fact_new_cpd_spend
+       (utc_timestamp timestamp NOT NULL,
+        utc_date_sid int NOT NULL,
+        utc_hour_sid int NOT NULL,
+        instance_timestamp timestamp NOT NULL,
+        advt_timestamp timestamp NOT NULL,
+        a_platform_id varchar(40),
+        p_platform_id varchar(40),
+        publisher_account_nk int NOT NULL,
+        site_nk int NOT NULL,
+        site_section_nk int NOT NULL,
+        page_nk int NOT NULL,
+        ad_unit_nk int NOT NULL,
+        rev_split numeric(5,2),
+        deal_type_uid varchar(100),
+        deal_cpm numeric(37,26),
+        rev_share_enabled boolean,
+        package_nk INT,
+        deal_nk INT,
+        advertiser_account_nk int NOT NULL,
+        order_nk int NOT NULL,
+        line_item_nk int NOT NULL,
+        ad_nk int NOT NULL,
+        line_item_pricing_model_code varchar(100),
+        line_item_pricing_rate numeric(37,26),
+        brand_nk int NOT NULL,
+        delivery_medium_code varchar(100) NOT NULL,
+        screen_location_code varchar(100) NOT NULL,
+        content_topic_group_sid int,
+        sales_channel_code varchar(60) NOT NULL,
+        p_currency_code char(3) NOT NULL,
+        a_currency_code char(3) NOT NULL,
+        country_code char(4) NOT NULL,
+        ad_width INT NULL,
+        ad_height INT NULL,
+        ad_duration int,
+        ssp_elig boolean,
+        p_req_deliv_medium varchar(64),
+        u_can_cookie boolean,
+        p_mapped_adunit_type varchar(40),
+        u_mobl_dev_cat varchar(40),
+        is_mobile_app boolean,
+        tot_publisher_cpd_revenue DECIMAL(37,26) NOT NULL,
+        tot_network_cpd_revenue DECIMAL(37,26) NOT NULL,
+        tot_spend DECIMAL(37,26) NOT NULL
+       )"
+  - "TRUNCATE TABLE tmp_supply_demand_fact_new_cpd_spend"
+
+JOB_NAME: "supply_demand_geo"
+
+TMP_AD_UNIT_HISTORY_TABLES:
+  - "CREATE TABLE IF NOT EXISTS tmp_daily_ad_unit_deal_type_history(
+      ad_unit_deal_type_history_id int,
+      ad_unit_nk int,
+      platform_id varchar(255),
+      rev_split numeric(5,2),
+      deal_type_uid varchar(100),
+      deal_cpm numeric(37,26),
+      rev_share_enabled boolean,
+      effective_start_date timestamp,
+      effective_end_date timestamp
+    ) 
+    UNSEGMENTED ALL NODES "
+  - "TRUNCATE TABLE tmp_daily_ad_unit_deal_type_history"
+  - "INSERT INTO tmp_daily_ad_unit_deal_type_history(ad_unit_deal_type_history_id, ad_unit_nk, platform_id, rev_split,deal_type_uid,deal_cpm,rev_share_enabled,effective_start_date,effective_end_date)
+     SELECT adh.ad_unit_deal_type_history_id, adh.ad_unit_nk, adh.platform_id, adh.rev_split,adh.deal_type_uid,adh.deal_cpm,adh.rev_share_enabled,adh.effective_start_date,adh.effective_end_date
+     FROM ad_unit_deal_type_history adh INNER JOIN platform_dim pd
+     ON adh.platform_id=pd.platform_id
+     WHERE 
+     NEW_TIME(?(FEED_HOUR)?::datetime, 'UTC', pd.timezone) >=  adh.effective_start_date AND
+                                                           NEW_TIME(?(FEED_HOUR)?::datetime, 'UTC', pd.timezone) < ISNULL(adh.effective_end_date,'2099-12-31')"
+  - "CREATE LOCAL TEMPORARY TABLE  IF NOT EXISTS tmp_duplicate_ad_unit (ad_unit_deal_type_history_id int, ad_unit_nk int) ON COMMIT PRESERVE ROWS"
+  - "TRUNCATE TABLE tmp_duplicate_ad_unit"
+  - "INSERT INTO tmp_duplicate_ad_unit
+     select ad_unit_deal_type_history_id,ad_unit_nk from 
+     (select a.ad_unit_deal_type_history_id, a.ad_unit_nk,
+     RANK() OVER (PARTITION BY a.ad_unit_nk ORDER BY a.ad_unit_deal_type_history_id) AS rank
+     FROM tmp_daily_ad_unit_deal_type_history a
+     INNER JOIN tmp_daily_ad_unit_deal_type_history b
+             ON a.ad_unit_nk = b.ad_unit_nk
+            AND a.ad_unit_deal_type_history_id != b.ad_unit_deal_type_history_id
+          WHERE (a.effective_start_date < b.effective_end_date or b.effective_end_date is null)
+            AND (a.effective_end_date > b.effective_start_date or a.effective_end_date is null)
+     GROUP BY 1,2) foo
+     where foo.rank >1"
+  - "DELETE FROM tmp_daily_ad_unit_deal_type_history 
+     where ad_unit_deal_type_history_id = (select ad_unit_deal_type_history_id from tmp_duplicate_ad_unit  where  tmp_daily_ad_unit_deal_type_history.ad_unit_nk = tmp_duplicate_ad_unit.ad_unit_nk) "
+  - "COMMIT"
+  - "SELECT analyze_histogram('tmp_daily_ad_unit_deal_type_history',10)"
+
+TMP_LINE_ITEM_HISTORY_TABLES:
+  - "CREATE TABLE  IF NOT EXISTS tmp_daily_cpd_line_item_history(
+      cpd_line_item_history_id int,
+      line_item_nk int,
+      line_item_pricing_model_code varchar(100),
+      line_item_pricing_rate numeric(37,26),
+      effective_start_date timestamp,
+      effective_end_date timestamp
+    ) 
+    UNSEGMENTED ALL NODES "
+  - "TRUNCATE TABLE tmp_daily_cpd_line_item_history"
+  - "INSERT INTO tmp_daily_cpd_line_item_history(cpd_line_item_history_id, line_item_nk, line_item_pricing_model_code, line_item_pricing_rate,effective_start_date,effective_end_date)
+    SELECT 
+    lih.cpd_line_item_history_id, lih.line_item_nk, lih.line_item_pricing_model_code, lih.line_item_pricing_rate,lih.effective_start_date,lih.effective_end_date
+    FROM cpd_line_item_history lih
+    where ?(FEED_HOUR)?  >= lih.effective_start_date and ?(FEED_HOUR)?  < ISNULL(lih.effective_end_date,'2099-12-31') "
+  - "CREATE LOCAL TEMPORARY TABLE  IF NOT EXISTS tmp_duplicate_line_item (cpd_line_item_history_id int, line_item_nk int) ON COMMIT PRESERVE ROWS"
+  - "TRUNCATE TABLE tmp_duplicate_line_item"
+  - "INSERT INTO tmp_duplicate_line_item
+    select cpd_line_item_history_id, line_item_nk from 
+    (select a.cpd_line_item_history_id, a.line_item_nk,
+    RANK() OVER (PARTITION BY a.line_item_nk ORDER BY a.cpd_line_item_history_id) AS rank
+     FROM tmp_daily_cpd_line_item_history a
+         INNER JOIN tmp_daily_cpd_line_item_history b
+                 ON a.line_item_nk = b.line_item_nk
+                AND a.cpd_line_item_history_id != b.cpd_line_item_history_id
+              WHERE (a.effective_start_date < b.effective_end_date or b.effective_end_date is null)
+                AND (a.effective_end_date > b.effective_start_date or a.effective_end_date is null)
+    GROUP BY 1,2) foo
+    where foo.rank >1"
+  - "DELETE FROM tmp_daily_cpd_line_item_history 
+    where cpd_line_item_history_id = (select cpd_line_item_history_id from tmp_duplicate_line_item  where  tmp_daily_cpd_line_item_history.line_item_nk = tmp_duplicate_line_item.line_item_nk) "
+  - "COMMIT"
+  - "SELECT analyze_histogram('tmp_daily_cpd_line_item_history',10)"
+
+UPDATE_RS_START : 
+  "UPDATE rollup_state 
+      SET needs_rs_run=1 
+    WHERE has_oxts = 1 
+      AND has_conv = 1
+      AND new_input_data = 1"
+
+UPDATE_RS_END : 
+  - "UPDATE rollup_state 
+        SET needs_rs_run= 0,
+            new_input_data = 0,
+            new_rollup_data = 1
+      WHERE rs_utc_hour = ?(FEED_HOUR)?" 
+
+HOUR_LOOP_SQL : 
+  "SELECT to_char(rs_utc_hour,'YYYY-MM-DD HH24:MI:SS') rs_utc_hour
+     FROM rollup_state rs
+    WHERE needs_rs_run = 1
+   ORDER BY rs_utc_hour"
+
+# FOR RevShare dealtype adjustment
+REVSHARE_RETRIEVE_CUST_SQL : 
+  # Get the platforms and ad units where the input hour is the last hour in the platform's day .
+  - "INSERT INTO tmp_revshare_platform_ready
+       SELECT adh.ad_unit_nk, p.platform_id,
+              DATE(NEW_TIME(?(FEED_HOUR)? ,'UTC', IFNULL(p.timezone,'UTC'))) instance_date 
+         FROM tmp_daily_ad_unit_deal_type_history adh, platform_dim p
+        WHERE adh.platform_id = p.platform_id
+          AND TO_CHAR(NEW_TIME(?(FEED_HOUR)? ,'UTC', IFNULL(p.timezone,'UTC')),'YYYYMMDD')
+                     <> TO_CHAR(NEW_TIME(TO_TIMESTAMP(?(FEED_HOUR)?,'YYYY-MM-DD HH24:MI:SS')+1/24,'UTC',IFNULL(p.timezone,'UTC')),'YYYYMMDD')"
+
+SELECT_DATE_SQL : "SELECT DISTINCT instance_date FROM tmp_revshare_platform_ready"
+
+REVSHARE_MIN_MAX_UTC_DATE_SIDS: 
+  "SELECT MIN(TO_NUMBER(TO_CHAR(NEW_TIME(TO_TIMESTAMP(TO_CHAR(t.instance_date,'YYYY-MM-DD 00:00:00'),'YYYY-MM-DD HH24:MI:SS'), 
+                                         p.timezone,'UTC'), 'YYYYMMDD'))) start_utc_date_sid,
+          MAX(TO_NUMBER(TO_CHAR(NEW_TIME(TO_TIMESTAMP(TO_CHAR(t.instance_date,'YYYY-MM-DD 23:59:59'),'YYYY-MM-DD HH24:MI:SS'), 
+                                         p.timezone,'UTC'), 'YYYYMMDD'))) end_utc_date_sid
+     FROM tmp_revshare_platform_ready t 
+            INNER JOIN platform_dim p on (t.platform_id = p.platform_id)"
+
+REVSHARE_ADJUSTMENT_SQL : 
+  - "INSERT INTO tmp_daily_surplus 
+     SELECT ad_unit_nk,
+            p_platform_id,
+            CASE
+              WHEN ( rev_split/100 *  gross_revenue ) - (tot_billable_imps* deal_cpm / 1000)  > 0 THEN ( rev_split/100  *  gross_revenue ) - (tot_billable_imps* deal_cpm / 1000) 
+              ELSE 0
+            END potential_daily_surplus
+       FROM (SELECT sdgh.ad_unit_nk,
+                    sdgh.p_platform_id,
+                    sdgh.rev_split,
+                    sdgh.deal_cpm,
+                    sum( sdgh.tot_raw_revenue)   gross_revenue,
+                    sum( tot_billable_impressions) tot_billable_imps 
+               FROM supply_demand_geo_hourly_fact  sdgh
+                      INNER JOIN tmp_revshare_platform_ready tmp ON ( sdgh.p_platform_id = tmp.platform_id AND sdgh.ad_unit_nk = tmp.ad_unit_nk )
+              WHERE sdgh.deal_type_uid = 'DEALTYPE.VARIABLE'   
+                AND DATE(sdgh.instance_timestamp) = tmp.instance_date
+                AND sdgh.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+              GROUP BY sdgh.ad_unit_nk, sdgh.p_platform_id, sdgh.rev_split, sdgh.deal_cpm ) main_daily_surplus"
+
+  - "INSERT INTO tmp_sum_of_weights 
+       SELECT sdgh.ad_unit_nk,
+              sdgh.p_platform_id,
+              sum(CASE 
+                    WHEN ( sdgh.rev_split / 100 * sdgh.tot_raw_revenue ) - (tot_billable_impressions * sdgh.deal_cpm /1000 ) > 0 
+                       THEN ( sdgh.rev_split / 100 * sdgh.tot_raw_revenue ) - (tot_billable_impressions * sdgh.deal_cpm /1000 ) 
+                    ELSE 0
+                  END)  sum_of_weights
+         FROM supply_demand_geo_hourly_fact sdgh 
+                INNER JOIN tmp_revshare_platform_ready tmp ON ( sdgh.p_platform_id = tmp.platform_id AND sdgh.ad_unit_nk  = tmp.ad_unit_nk )
+        WHERE sdgh.deal_type_uid = 'DEALTYPE.VARIABLE'   
+          AND DATE(sdgh.instance_timestamp) = tmp.instance_date
+          AND sdgh.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+        GROUP BY sdgh.ad_unit_nk, sdgh.p_platform_id"
+
+  - "INSERT INTO tmp_new_revenue ( row_id, p_platform_id, tot_new_publisher_revenue, tot_new_network_revenue) 
+       SELECT rowid row_id,
+        main.p_platform_id,
+              CASE
+                WHEN sum_of_weights <=0 THEN baseline 
+                ELSE baseline + weight / sum_of_weights * potential_daily_surplus
+              END tot_new_publisher_revenue,
+              CASE
+                WHEN sum_of_weights <=0 THEN tot_raw_revenue - baseline
+                ELSE  tot_raw_revenue - ( baseline + weight / sum_of_weights * potential_daily_surplus ) 
+              END tot_new_network_revenue
+         FROM (SELECT rowid,
+                      sdgh.p_platform_id,
+                      CASE
+                        WHEN ( sdgh.rev_split / 100 * sdgh.tot_raw_revenue ) - (tot_billable_impressions * sdgh.deal_cpm /1000 ) > 0 
+                           THEN ( sdgh.rev_split / 100 * sdgh.tot_raw_revenue ) - (tot_billable_impressions * sdgh.deal_cpm /1000) 
+                        ELSE 0
+                      END weight,
+                      sdgh.tot_billable_impressions * sdgh.deal_cpm /1000  baseline,
+                      sur.potential_daily_surplus,
+                      sow.sum_of_weights,
+                      sdgh.tot_publisher_revenue,
+                      sdgh.tot_network_revenue,
+                      sdgh.tot_raw_revenue
+                 FROM supply_demand_geo_hourly_fact  sdgh
+                            INNER JOIN tmp_daily_surplus sur ON ( sdgh.ad_unit_nk = sur.ad_unit_nk and sdgh.p_platform_id = sur.platform_id)
+                            INNER JOIN tmp_sum_of_weights  sow ON ( sdgh.ad_unit_nk = sow.ad_unit_nk and sdgh.p_platform_id = sow.platform_id)
+                            INNER JOIN tmp_revshare_platform_ready tmp ON ( sdgh.p_platform_id = tmp.platform_id AND sdgh.ad_unit_nk = tmp.ad_unit_nk)
+                WHERE sdgh.deal_type_uid = 'DEALTYPE.VARIABLE'
+                  AND DATE(sdgh.instance_timestamp) = tmp.instance_date
+                  AND sdgh.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+               )  main"
+
+  - "UPDATE supply_demand_geo_hourly_fact
+        SET tot_publisher_revenue = tot_new_publisher_revenue,
+            tot_network_revenue = tot_new_network_revenue
+       FROM tmp_new_revenue new_rev
+      WHERE new_rev.row_id <=> rowid
+        AND supply_demand_geo_hourly_fact.p_platform_id<=> new_rev.p_platform_id
+        AND supply_demand_geo_hourly_fact.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?"
+
+  # Also update supply_hourly_fact table (no need to update demand_hourly_fact table)
+  - "INSERT INTO tmp_supply_fact_new_revenue
+     SELECT utc_timestamp,utc_date_sid, utc_hour_sid, instance_timestamp,
+            f.p_platform_id, publisher_account_nk, site_nk, site_section_nk, page_nk, ad_unit_nk,
+            rev_split, deal_type_uid, deal_cpm, rev_share_enabled,package_nk,deal_nk, 
+            delivery_medium_code,screen_location_code, content_topic_group_sid, sales_channel_code, p_currency_code,
+            ad_width, ad_height, ad_duration,ssp_elig,p_req_deliv_medium, u_can_cookie,
+            p_mapped_adunit_type,u_mobl_dev_cat,is_mobile_app,
+            sum(t.tot_new_publisher_revenue) tot_publisher_revenue, sum(t.tot_new_network_revenue) tot_network_revenue
+       FROM supply_demand_geo_hourly_fact f 
+               INNER JOIN tmp_new_revenue t ON (f.rowid = t.row_id)
+       WHERE f.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+       GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30"
+
+  - "UPDATE supply_hourly_fact
+        SET tot_publisher_revenue = t.tot_publisher_revenue,
+            tot_network_revenue = t.tot_network_revenue
+        FROM tmp_supply_fact_new_revenue t
+        WHERE supply_hourly_fact.utc_timestamp <=> t.utc_timestamp
+          AND supply_hourly_fact.utc_date_sid <=> t.utc_date_sid
+          AND supply_hourly_fact.utc_hour_sid <=> t.utc_hour_sid
+          AND supply_hourly_fact.instance_timestamp <=> t.instance_timestamp
+          AND supply_hourly_fact.p_platform_id <=> t.p_platform_id
+          AND supply_hourly_fact.publisher_account_nk <=> t.publisher_account_nk
+          AND supply_hourly_fact.site_nk <=> t.site_nk
+          AND supply_hourly_fact.site_section_nk <=> t.site_section_nk
+          AND supply_hourly_fact.page_nk <=> t.page_nk
+          AND supply_hourly_fact.ad_unit_nk <=> t.ad_unit_nk
+          AND supply_hourly_fact.rev_split <=> t.rev_split
+          AND supply_hourly_fact.deal_type_uid <=> t.deal_type_uid
+          AND supply_hourly_fact.deal_cpm <=> t.deal_cpm
+          AND supply_hourly_fact.rev_share_enabled <=> t.rev_share_enabled
+          AND supply_hourly_fact.package_nk <=> t.package_nk
+          AND supply_hourly_fact.deal_nk <=> t.deal_nk
+          AND supply_hourly_fact.delivery_medium_code <=> t.delivery_medium_code
+          AND supply_hourly_fact.screen_location_code <=> t.screen_location_code
+          AND supply_hourly_fact.content_topic_group_sid <=> t.content_topic_group_sid
+          AND supply_hourly_fact.sales_channel_code <=> t.sales_channel_code
+          AND supply_hourly_fact.p_currency_code <=> t.p_currency_code
+          AND supply_hourly_fact.ad_width <=> t.ad_width
+          AND supply_hourly_fact.ad_height <=> t.ad_height
+          AND supply_hourly_fact.ad_duration <=> t.ad_duration
+          AND supply_hourly_fact.ssp_elig <=> t.ssp_elig
+          AND supply_hourly_fact.p_req_deliv_medium <=> t.p_req_deliv_medium
+          AND supply_hourly_fact.u_can_cookie <=> t.u_can_cookie
+          AND supply_hourly_fact.p_mapped_adunit_type <=> t.p_mapped_adunit_type
+          AND supply_hourly_fact.u_mobl_dev_cat <=> t.u_mobl_dev_cat
+          AND supply_hourly_fact.is_mobile_app <=> t.is_mobile_app
+          AND supply_hourly_fact.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?"
+
+  # Also update supply_demand_country_hourly_fact table 
+  - "INSERT INTO tmp_supply_demand_country_new_revenue
+     SELECT utc_timestamp, utc_date_sid, utc_hour_sid, 
+            instance_timestamp, advt_timestamp, 
+            a_platform_id, f.p_platform_id,
+            publisher_account_nk, site_nk, site_section_nk, page_nk, ad_unit_nk,
+            rev_split, deal_type_uid, deal_cpm, rev_share_enabled, package_nk, deal_nk,
+            advertiser_account_nk, order_nk, line_item_nk, ad_nk, line_item_pricing_model_code, line_item_pricing_rate,
+            brand_nk, delivery_medium_code, screen_location_code, content_topic_group_sid, sales_channel_code,
+            p_currency_code, a_currency_code, country_code, ad_width, ad_height, ad_duration,ssp_elig,p_req_deliv_medium,
+            u_can_cookie,p_mapped_adunit_type,u_mobl_dev_cat,is_mobile_app,
+            sum(t.tot_new_publisher_revenue) tot_publisher_revenue, sum(t.tot_new_network_revenue) tot_network_revenue
+       FROM supply_demand_geo_hourly_fact f 
+               INNER JOIN tmp_new_revenue t ON (f.rowid = t.row_id)
+       WHERE f.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+       GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41"
+
+  - "UPDATE supply_demand_country_hourly_fact
+        SET tot_publisher_revenue = t.tot_publisher_revenue,
+            tot_network_revenue = t.tot_network_revenue
+        FROM tmp_supply_demand_country_new_revenue t
+        WHERE supply_demand_country_hourly_fact.utc_timestamp <=> t.utc_timestamp
+          AND supply_demand_country_hourly_fact.utc_date_sid <=> t.utc_date_sid
+          AND supply_demand_country_hourly_fact.utc_hour_sid <=> t.utc_hour_sid
+          AND supply_demand_country_hourly_fact.instance_timestamp <=> t.instance_timestamp
+          AND supply_demand_country_hourly_fact.advt_timestamp <=> t.advt_timestamp
+          AND supply_demand_country_hourly_fact.a_platform_id <=> t.a_platform_id
+          AND supply_demand_country_hourly_fact.p_platform_id <=> t.p_platform_id
+          AND supply_demand_country_hourly_fact.publisher_account_nk <=> t.publisher_account_nk
+          AND supply_demand_country_hourly_fact.site_nk <=> t.site_nk
+          AND supply_demand_country_hourly_fact.site_section_nk <=> t.site_section_nk
+          AND supply_demand_country_hourly_fact.page_nk <=> t.page_nk
+          AND supply_demand_country_hourly_fact.ad_unit_nk <=> t.ad_unit_nk
+          AND supply_demand_country_hourly_fact.rev_split <=> t.rev_split
+          AND supply_demand_country_hourly_fact.deal_type_uid <=> t.deal_type_uid
+          AND supply_demand_country_hourly_fact.deal_cpm <=> t.deal_cpm
+          AND supply_demand_country_hourly_fact.rev_share_enabled <=> t.rev_share_enabled
+          AND supply_demand_country_hourly_fact.package_nk <=> t.package_nk
+          AND supply_demand_country_hourly_fact.deal_nk <=> t.deal_nk
+          AND supply_demand_country_hourly_fact.advertiser_account_nk <=> t.advertiser_account_nk
+          AND supply_demand_country_hourly_fact.order_nk <=> t.order_nk
+          AND supply_demand_country_hourly_fact.line_item_nk <=> t.line_item_nk
+          AND supply_demand_country_hourly_fact.ad_nk <=> t.ad_nk
+          AND supply_demand_country_hourly_fact.line_item_pricing_model_code <=> t.line_item_pricing_model_code
+          AND supply_demand_country_hourly_fact.line_item_pricing_rate <=> t.line_item_pricing_rate
+          AND supply_demand_country_hourly_fact.brand_nk <=> t.brand_nk
+          AND supply_demand_country_hourly_fact.delivery_medium_code <=> t.delivery_medium_code
+          AND supply_demand_country_hourly_fact.screen_location_code <=> t.screen_location_code
+          AND supply_demand_country_hourly_fact.content_topic_group_sid <=> t.content_topic_group_sid
+          AND supply_demand_country_hourly_fact.sales_channel_code <=> t.sales_channel_code
+          AND supply_demand_country_hourly_fact.p_currency_code <=> t.p_currency_code
+          AND supply_demand_country_hourly_fact.a_currency_code <=> t.a_currency_code
+          AND supply_demand_country_hourly_fact.country_code <=> t.country_code
+          AND supply_demand_country_hourly_fact.ad_width <=> t.ad_width
+          AND supply_demand_country_hourly_fact.ad_height <=> t.ad_height
+          AND supply_demand_country_hourly_fact.ad_duration <=> t.ad_duration
+          AND supply_demand_country_hourly_fact.ssp_elig <=> t.ssp_elig
+          AND supply_demand_country_hourly_fact.p_req_deliv_medium <=> t.p_req_deliv_medium
+          AND supply_demand_country_hourly_fact.u_can_cookie <=> t.u_can_cookie
+          AND supply_demand_country_hourly_fact.p_mapped_adunit_type <=> t.p_mapped_adunit_type
+          AND supply_demand_country_hourly_fact.u_mobl_dev_cat <=> t.u_mobl_dev_cat
+          AND supply_demand_country_hourly_fact.is_mobile_app <=> t.is_mobile_app
+          AND supply_demand_country_hourly_fact.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?"
+
+CPD_RETRIEVE_CUST_SQL : 
+  - "INSERT INTO tmp_cpd_fixed_lineitem_ready 
+     SELECT  adh.platform_id,  
+             li.line_item_nk,
+             advertiser_account_timezone,
+             cpd.line_item_pricing_model_code,
+             TRUNC(NEW_TIME(?(FEED_HOUR)?, 'UTC', IFNULL(advertiser_account_timezone,'UTC'))) start_time, 
+             TRUNC(NEW_TIME(TO_TIMESTAMP(?(FEED_HOUR)?, 'YYYY-MM-DD HH24:MI:SS')+1/24,'UTC',IFNULL(advertiser_account_timezone,'UTC')))-1/86400 end_time,
+             CASE WHEN (cpd.line_item_pricing_model_code = 'PRICING.FIXED' AND ?(FEED_HOUR)? <= li.line_item_end_date) THEN 
+                DATEDIFF('day', ?(FEED_HOUR)?, li.line_item_end_date)+1
+             ELSE 0 END  fixedprice_days_remaining 
+       FROM  advertiser_dim adh
+       INNER JOIN
+       order_dim od
+       ON (adh.advertiser_account_nk = od.advertiser_account_nk )
+             INNER JOIN
+             line_item_dim li
+             ON ( li.order_nk = od.order_nk )
+       INNER JOIN
+       tmp_daily_cpd_line_item_history_new cpd
+       ON (cpd.line_item_nk = li.line_item_nk )
+      WHERE  TO_CHAR(NEW_TIME(?(FEED_HOUR)?,'UTC', IFNULL(advertiser_account_timezone,'UTC')),'YYYYMMDD')   
+             <> TO_CHAR(NEW_TIME(TO_TIMESTAMP(?(FEED_HOUR)?, 'YYYY-MM-DD HH24:MI:SS') + 1/24 ,'UTC',
+                IFNULL(advertiser_account_timezone,'UTC')),'YYYYMMDD')
+        AND  (cpd.line_item_pricing_model_code = 'PRICING.CPD' OR  
+              (cpd.line_item_pricing_model_code = 'PRICING.FIXED' AND li.line_item_end_date is not null))"
+
+CHECK_PRICING_FIXED: "SELECT 1 FROM tmp_cpd_fixed_lineitem_ready WHERE line_item_pricing_model_code = 'PRICING.FIXED' limit 1"
+
+CHECK_DEMAND_DAILY: "SELECT DATEDIFF('day',max(instance_rollup_date),max(start_time)) diff FROM tmp_cpd_fixed_lineitem_ready, demand_daily_fact"
+
+CPD_RETRIEVE_TOTAL_FIXED_SPEND:
+  - "INSERT INTO tmp_fixed_lineitem_total_spent
+     SELECT f.a_platform_id, f.line_item_nk, sum(tot_spend)
+       FROM demand_daily_fact f
+              INNER JOIN tmp_cpd_fixed_lineitem_ready t on 
+                (f.a_platform_id = t.platform_id and f.line_item_nk = t.line_item_nk and t.line_item_pricing_model_code = 'PRICING.FIXED')
+      WHERE f.instance_date_sid < TO_NUMBER(TO_CHAR(t.start_time,'YYYYMMDD'))
+      GROUP BY 1,2"
+
+CPD_MIN_MAX_UTC_DATE_SIDS: 
+  "SELECT MIN(TO_NUMBER(TO_CHAR(NEW_TIME(start_time, IFNULL(advertiser_account_timezone,'UTC'),'UTC'), 'YYYYMMDD'))) start_utc_date_sid,
+          MAX(TO_NUMBER(TO_CHAR(NEW_TIME(end_time, IFNULL(advertiser_account_timezone,'UTC'),'UTC'), 'YYYYMMDD'))) end_utc_date_sid
+     FROM tmp_cpd_fixed_lineitem_ready t" 
+
+CPD_ADJUSTMENT_SQL :
+  # The table, tmp_cpd_daily_surplus, contains total impressions by line item for the current day. It probably 
+  # should be called tmp_ttl_impressions_by_lineitem.
+  # NOTE: There is a minimum traffic requirement to incur spend on a CPD line item, to prevent a full day's charges 
+  #       being applied when a small amount of traffic spills over from one day to the next by accident.  If the ratio 
+  #       of the current day's impression count to the previous day's impression count for a line item is less than 
+  #       a fixed amount (currently set at .04), then CPD adjustments will not be made in the current day for 
+  #       that line item. This does not apply to FIXED pricing line items.
+  - "INSERT INTO tmp_cpd_daily_surplus       
+       SELECT today_imps.line_item_nk,
+              today_imps.a_platform_id,
+              sum(isnull(today_imps.tot_li_impressions,0)) sum_of_weights
+         FROM (
+               SELECT sdgh.line_item_nk,
+                      sdgh.a_platform_id,
+                      sdgh.line_item_pricing_model_code,
+                      sum( sdgh.tot_impressions ) tot_li_impressions
+                 FROM supply_demand_geo_hourly_fact  sdgh
+                      INNER JOIN 
+                      tmp_cpd_fixed_lineitem_ready tmp ON 
+                       ( sdgh.a_platform_id = tmp.platform_id 
+                         AND 
+                         sdgh.line_item_nk = tmp.line_item_nk )        
+                WHERE sdgh.advt_timestamp between tmp.start_time and tmp.end_time
+                  AND sdgh.utc_date_sid between ?(START_UTC_DATA_SID)? and ?(END_UTC_DATE_SID)?
+                GROUP BY 1,2,3
+             ) today_imps
+             LEFT JOIN
+             (
+              SELECT sdgh.line_item_nk,
+                     sdgh.a_platform_id,
+                     sdgh.line_item_pricing_model_code,
+                     sum( sdgh.tot_impressions ) tot_li_impressions
+                FROM supply_demand_geo_hourly_fact  sdgh
+                     INNER JOIN
+                     tmp_cpd_fixed_lineitem_ready tmp ON
+                     ( sdgh.a_platform_id = tmp.platform_id
+                       AND
+                       sdgh.line_item_nk = tmp.line_item_nk )
+               WHERE sdgh.advt_timestamp between tmp.start_time-1 and tmp.end_time-1
+                 AND sdgh.utc_date_sid between TO_NUMBER(TO_CHAR((TO_DATE(?(START_UTC_DATE_SID)?, 'YYYYMMDD') - 1), 'YYYYMMDD')) and ?(END_UTC_DATE_SID)?
+               GROUP BY 1,2,3
+             ) yesterday_imps                            
+             ON ( today_imps.line_item_nk = yesterday_imps.line_item_nk
+                  and 
+                  today_imps.a_platform_id = yesterday_imps.a_platform_id
+                  and 
+                  today_imps.line_item_pricing_model_code = yesterday_imps.line_item_pricing_model_code )
+        WHERE isnull(today_imps.tot_li_impressions,0) > isnull(yesterday_imps.tot_li_impressions,0) * .04
+           OR today_imps.line_item_pricing_model_code = 'PRICING.FIXED'
+        GROUP BY 1,2"
+
+
+  # Repeat utc_date_sid predicate to make up 4 binds
+  - "INSERT INTO tmp_new_cpd_revenue ( 
+    row_id, 
+    p_platform_id, 
+    utc_date_sid, 
+    line_item_nk, 
+    tot_spend, 
+    tot_publisher_cpd_revenue, 
+    tot_network_cpd_revenue 
+     ) SELECT rowid row_id,
+              p_platform_id,
+              utc_date_sid,
+              line_item_nk,
+              tot_spend,
+              sum(CASE
+                   WHEN deal_type_uid='DEALTYPE.STANDARD'
+                        THEN (IFNULL(rev_split,100) / 100)  * tot_spend 
+                   WHEN deal_type_uid='DEALTYPE.FIXEDFILL' THEN  billable_imp * deal_cpm / 1000
+                   WHEN deal_type_uid='DEALTYPE.FIXEDFALLBACK' THEN billable_imp * deal_cpm / 1000
+                   WHEN deal_type_uid='DEALTYPE.VARIABLE' THEN billable_imp * deal_cpm / 1000
+                   ELSE tot_spend 
+                  END) tot_publisher_cpd_revenue,
+              sum(CASE
+                   WHEN deal_type_uid='DEALTYPE.STANDARD'
+                        THEN (1 - IFNULL(rev_split,0)/100)  * tot_spend 
+                   WHEN deal_type_uid='DEALTYPE.FIXEDFILL'
+                        THEN  (tot_spend/1000000) - (billable_imp * deal_cpm / 1000)
+                   WHEN deal_type_uid='DEALTYPE.FIXEDFALLBACK'
+                        THEN (tot_spend/1000000) - (billable_imp * deal_cpm / 1000)
+                   WHEN deal_type_uid='DEALTYPE.VARIABLE' THEN 0
+                   ELSE 0
+                  END) tot_network_cpd_revenue
+         FROM (SELECT sdgh.rowid,
+                      rev_split, deal_type_uid, deal_cpm, 
+                      sdgh.p_platform_id,
+                      sdgh.utc_date_sid,
+                      sdgh.line_item_nk,
+                      CASE
+                        WHEN tmp.sum_of_weights > 0 THEN
+                             CASE WHEN sdgh.line_item_pricing_model_code = 'PRICING.CPD' THEN
+                               sdgh.line_item_pricing_rate * sdgh.tot_impressions / tmp.sum_of_weights
+                             ELSE 
+                               CASE WHEN ((sdgh.line_item_pricing_rate > ifnull(fts.fixedprice_total_spent,0)) and (cpd.fixedprice_days_remaining > 0)) THEN
+                                 ((sdgh.line_item_pricing_rate - ifnull(fts.fixedprice_total_spent,0))/cpd.fixedprice_days_remaining) * sdgh.tot_impressions / tmp.sum_of_weights
+                               ELSE 
+                                 0 
+                               END
+                             END
+                        ELSE 0
+                      END tot_spend,
+                      tot_billable_impressions billable_imp
+                 FROM supply_demand_geo_hourly_fact  sdgh
+                      INNER JOIN
+                      tmp_cpd_daily_surplus tmp ON
+                      ( sdgh.a_platform_id = tmp.a_platform_id
+                        AND
+                        sdgh.line_item_nk = tmp.line_item_nk              
+                      )
+                      INNER JOIN  
+                      tmp_cpd_fixed_lineitem_ready cpd ON
+                      ( sdgh.a_platform_id = cpd.platform_id
+                        AND
+                        sdgh.line_item_nk = cpd.line_item_nk 
+                        AND
+                        sdgh.advt_timestamp between cpd.start_time and cpd.end_time 
+                      )
+                      LEFT JOIN 
+                      tmp_fixed_lineitem_total_spent fts ON
+                      ( sdgh.a_platform_id = fts.platform_id
+                        AND
+                        sdgh.line_item_nk = fts.line_item_nk
+                      )
+                  WHERE sdgh.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+                    AND sdgh.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+               )  main
+        GROUP  BY 1,2,3,4,5"
+
+
+  # Repeat utc_date_sid predicate to make up 4 binds
+  - "UPDATE supply_demand_geo_hourly_fact sdgh
+        SET tot_publisher_cpd_revenue = new_rev.tot_publisher_cpd_revenue,
+            tot_network_cpd_revenue = new_rev.tot_network_cpd_revenue,
+            tot_spend = new_rev.tot_spend
+       FROM tmp_new_cpd_revenue new_rev
+      WHERE new_rev.row_id = sdgh.rowid
+        AND sdgh.utc_date_sid =  new_rev.utc_date_sid
+        AND sdgh.p_platform_id= new_rev.p_platform_id
+        AND sdgh.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?"
+
+  # Now also update demand_hourly_fact
+  # Repeat utc_date_sid predicate to make up 4 binds
+  - "INSERT INTO tmp_demand_fact_new_cpd_spend
+       SELECT f.utc_timestamp,f.utc_date_sid,f.utc_hour_sid,f.instance_timestamp,f.advt_timestamp,
+              f.a_platform_id,f.advertiser_account_nk,f.order_nk,f.line_item_nk,f.ad_nk,
+              f.line_item_pricing_model_code, f.line_item_pricing_rate, f.deal_nk,
+              f.sales_channel_code,f.delivery_medium_code,f.a_currency_code,
+              f.ad_width,f.ad_height,f.ad_duration,f.ssp_elig,f.p_req_deliv_medium, f.u_can_cookie,
+              f.p_mapped_adunit_type,f.u_mobl_dev_cat,f.is_mobile_app,
+              sum(t.tot_spend)
+         FROM supply_demand_geo_hourly_fact f INNER JOIN tmp_new_cpd_revenue t ON (f.rowid = t.row_id)
+        WHERE f.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25"
+
+  # Repeat utc_date_sid predicate to have 4 binds
+  - "UPDATE demand_hourly_fact
+        SET tot_spend = t.tot_spend
+       FROM tmp_demand_fact_new_cpd_spend t
+      WHERE demand_hourly_fact.utc_timestamp <=> t.utc_timestamp
+        AND demand_hourly_fact.utc_date_sid <=> t.utc_date_sid
+        AND demand_hourly_fact.utc_hour_sid <=> t.utc_hour_sid
+        AND demand_hourly_fact.instance_timestamp <=> t.instance_timestamp
+        AND demand_hourly_fact.advt_timestamp <=> t.advt_timestamp
+        AND demand_hourly_fact.a_platform_id <=> t.a_platform_id
+        AND demand_hourly_fact.advertiser_account_nk <=> t.advertiser_account_nk
+        AND demand_hourly_fact.order_nk <=> t.order_nk
+        AND demand_hourly_fact.line_item_nk <=> t.line_item_nk
+        AND demand_hourly_fact.ad_nk <=> t.ad_nk
+        AND demand_hourly_fact.line_item_pricing_model_code <=> t.line_item_pricing_model_code
+        AND demand_hourly_fact.line_item_pricing_rate <=> t.line_item_pricing_rate
+        AND demand_hourly_fact.deal_nk <=> t.deal_nk
+        AND demand_hourly_fact.sales_channel_code <=> t.sales_channel_code
+        AND demand_hourly_fact.delivery_medium_code <=> t.delivery_medium_code
+        AND demand_hourly_fact.a_currency_code <=> t.a_currency_code
+        AND demand_hourly_fact.ad_width <=> t.ad_width
+        AND demand_hourly_fact.ad_height <=> t.ad_height
+        AND demand_hourly_fact.ad_duration <=> t.ad_duration
+        AND demand_hourly_fact.ssp_elig <=> t.ssp_elig
+        AND demand_hourly_fact.p_req_deliv_medium <=> t.p_req_deliv_medium
+        AND demand_hourly_fact.u_can_cookie <=> t.u_can_cookie
+        AND demand_hourly_fact.p_mapped_adunit_type <=> t.p_mapped_adunit_type
+        AND demand_hourly_fact.u_mobl_dev_cat <=> t.u_mobl_dev_cat
+        AND demand_hourly_fact.is_mobile_app <=> t.is_mobile_app
+        AND demand_hourly_fact.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?"
+
+  # Now also update supply_hourly_fact 
+  # NOTE: unlike revshare update to supply_hourly_fact and cpd_spend update to demand_hourly_fact where we can simply
+  #       aggregate the records directly from sdgh records that got changed (noticed INNER JOIN directly against tmp 
+  #       tables), for cpd revenue update on supply_hourly_fact, a given set of supply keys in a given record can 
+  #       contain cpd_revenue from multiple lineitem/ads in different advertisers' timezones.  Therefore, 
+  #       we need to identify all the supply side dimensional keys for the affected records in sdgh, and rollup 
+  #       those into supply_hourly_fact.  
+  - "INSERT INTO tmp_supply_fact_new_cpd_revenue
+     SELECT f.utc_timestamp, f.utc_date_sid, f.utc_hour_sid, f.instance_timestamp,
+            f.p_platform_id, f.publisher_account_nk, f.site_nk, f.site_section_nk, f.page_nk, f.ad_unit_nk, 
+            f.rev_split, f.deal_type_uid, f.deal_cpm, f.rev_share_enabled, f.package_nk, f.deal_nk,
+            f.delivery_medium_code, f.screen_location_code,  f.content_topic_group_sid,  f.sales_channel_code,  f.p_currency_code,
+            f.ad_width,  f.ad_height,  f.ad_duration, f.ssp_elig, f.p_req_deliv_medium, f.u_can_cookie,f.p_mapped_adunit_type,
+            f.u_mobl_dev_cat,f.is_mobile_app,
+            sum(tot_publisher_cpd_revenue), sum(tot_network_cpd_revenue) 
+       FROM supply_demand_geo_hourly_fact f
+               INNER JOIN 
+                   (SELECT distinct utc_timestamp,fk.utc_date_sid, utc_hour_sid, instance_timestamp,
+                           fk.p_platform_id, publisher_account_nk, site_nk, site_section_nk, page_nk,ad_unit_nk,
+                           rev_split, deal_type_uid, deal_cpm, rev_share_enabled, package_nk, deal_nk,
+                           delivery_medium_code,screen_location_code, content_topic_group_sid, 
+                           sales_channel_code, p_currency_code, ad_width, ad_height, ad_duration, ssp_elig, 
+                           p_req_deliv_medium, u_can_cookie,p_mapped_adunit_type,u_mobl_dev_cat,is_mobile_app
+                      FROM supply_demand_geo_hourly_fact fk
+                             INNER JOIN tmp_new_cpd_revenue t ON (fk.rowid = t.row_id)
+                     WHERE fk.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?) k 
+               ON (f.utc_timestamp <=> k.utc_timestamp AND 
+                   f.utc_date_sid <=> k.utc_date_sid AND 
+                   f.utc_hour_sid <=> k.utc_hour_sid AND 
+                   f.instance_timestamp <=> k.instance_timestamp AND 
+                   f.p_platform_id <=> k.p_platform_id AND 
+                   f.publisher_account_nk <=> k.publisher_account_nk AND 
+                   f.site_nk <=> k.site_nk AND 
+                   f.site_section_nk <=> k.site_section_nk AND 
+                   f.page_nk <=> k.page_nk AND 
+                   f.ad_unit_nk <=> k.ad_unit_nk AND 
+                   f.rev_split <=> k.rev_split AND 
+                   f.deal_type_uid <=> k.deal_type_uid AND 
+                   f.deal_cpm <=> k.deal_cpm AND 
+                   f.rev_share_enabled <=> k.rev_share_enabled AND 
+                   f.package_nk <=> k.package_nk AND 
+                   f.deal_nk <=> k.deal_nk AND 
+                   f.delivery_medium_code <=> k.delivery_medium_code AND 
+                   f.screen_location_code <=> k.screen_location_code AND 
+                   f.content_topic_group_sid <=> k.content_topic_group_sid AND 
+                   f.sales_channel_code <=> k.sales_channel_code AND 
+                   f.p_currency_code <=> k.p_currency_code AND 
+                   f.ad_width <=> k.ad_width AND 
+                   f.ad_height <=> k.ad_height AND 
+                   f.ad_duration <=> k.ad_duration AND
+                   f.ssp_elig <=> k.ssp_elig AND
+                   f.p_req_deliv_medium <=> k.p_req_deliv_medium AND
+                   f.u_can_cookie <=> k.u_can_cookie AND
+                   f.p_mapped_adunit_type <=> k.p_mapped_adunit_type AND
+                   f.u_mobl_dev_cat <=> k.u_mobl_dev_cat AND
+                   f.is_mobile_app <=> k.is_mobile_app)
+       WHERE f.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+       GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30"
+
+  # Repeat utc_date_sid predicate to have 4 binds
+  - "UPDATE supply_hourly_fact
+        SET tot_publisher_cpd_revenue = t.tot_publisher_cpd_revenue,
+            tot_network_cpd_revenue = t.tot_network_cpd_revenue
+        FROM tmp_supply_fact_new_cpd_revenue t
+        WHERE supply_hourly_fact.utc_timestamp <=> t.utc_timestamp
+          AND supply_hourly_fact.utc_date_sid <=> t.utc_date_sid
+          AND supply_hourly_fact.utc_hour_sid <=> t.utc_hour_sid
+          AND supply_hourly_fact.instance_timestamp <=> t.instance_timestamp
+          AND supply_hourly_fact.p_platform_id <=> t.p_platform_id
+          AND supply_hourly_fact.publisher_account_nk <=> t.publisher_account_nk
+          AND supply_hourly_fact.site_nk <=> t.site_nk
+          AND supply_hourly_fact.site_section_nk <=> t.site_section_nk
+          AND supply_hourly_fact.page_nk <=> t.page_nk
+          AND supply_hourly_fact.ad_unit_nk <=> t.ad_unit_nk
+          AND supply_hourly_fact.rev_split <=> t.rev_split
+          AND supply_hourly_fact.deal_type_uid <=> t.deal_type_uid
+          AND supply_hourly_fact.deal_cpm <=> t.deal_cpm
+          AND supply_hourly_fact.rev_share_enabled <=> t.rev_share_enabled
+          AND supply_hourly_fact.package_nk <=> t.package_nk
+          AND supply_hourly_fact.deal_nk <=> t.deal_nk
+          AND supply_hourly_fact.delivery_medium_code <=> t.delivery_medium_code
+          AND supply_hourly_fact.screen_location_code <=> t.screen_location_code
+          AND supply_hourly_fact.content_topic_group_sid <=> t.content_topic_group_sid
+          AND supply_hourly_fact.sales_channel_code <=> t.sales_channel_code
+          AND supply_hourly_fact.p_currency_code <=> t.p_currency_code
+          AND supply_hourly_fact.ad_width <=> t.ad_width
+          AND supply_hourly_fact.ad_height <=> t.ad_height
+          AND supply_hourly_fact.ad_duration <=> t.ad_duration
+          AND supply_hourly_fact.ssp_elig <=> t.ssp_elig
+          AND supply_hourly_fact.p_req_deliv_medium <=> t.p_req_deliv_medium
+          AND supply_hourly_fact.u_can_cookie <=> t.u_can_cookie
+          AND supply_hourly_fact.p_mapped_adunit_type <=> t.p_mapped_adunit_type
+          AND supply_hourly_fact.u_mobl_dev_cat <=> t.u_mobl_dev_cat
+          AND supply_hourly_fact.is_mobile_app <=> t.is_mobile_app
+          AND supply_hourly_fact.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?"
+
+  # Now also update supply_demand_country_hourly_fact
+  # Repeat utc_date_sid predicate to make up 4 binds
+  - "INSERT INTO tmp_supply_demand_fact_new_cpd_spend
+     SELECT f.utc_timestamp, f.utc_date_sid, f.utc_hour_sid,
+            f.instance_timestamp, f.advt_timestamp,
+            f.a_platform_id, f.p_platform_id,
+            f.publisher_account_nk, f.site_nk, f.site_section_nk, f.page_nk, f.ad_unit_nk, 
+            f.rev_split, f.deal_type_uid, f.deal_cpm, f.rev_share_enabled, f.package_nk, f.deal_nk,
+            f.advertiser_account_nk, f.order_nk, f.line_item_nk, f.ad_nk,
+            f.line_item_pricing_model_code, f.line_item_pricing_rate,
+            f.brand_nk, f.delivery_medium_code, f.screen_location_code, f.content_topic_group_sid, f.sales_channel_code,
+            f.p_currency_code, f.a_currency_code, f.country_code, f.ad_width, f.ad_height, f.ad_duration, f.ssp_elig,
+            f.p_req_deliv_medium, f.u_can_cookie,f.p_mapped_adunit_type,f.u_mobl_dev_cat,f.is_mobile_app,
+            sum(t.tot_publisher_cpd_revenue) tot_publisher_cpd_revenue, sum(t.tot_network_cpd_revenue) tot_network_cpd_revenue,
+            sum(t.tot_spend) tot_spend
+         FROM supply_demand_geo_hourly_fact f INNER JOIN tmp_new_cpd_revenue t ON (f.rowid = t.row_id)
+        WHERE f.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41"
+
+  # Repeat utc_date_sid predicate to have 4 binds
+  - "UPDATE supply_demand_country_hourly_fact
+        SET tot_publisher_cpd_revenue = t.tot_publisher_cpd_revenue,
+            tot_network_cpd_revenue = t.tot_network_cpd_revenue,
+            tot_spend = t.tot_spend
+        FROM tmp_supply_demand_fact_new_cpd_spend t
+        WHERE supply_demand_country_hourly_fact.utc_timestamp <=> t.utc_timestamp
+          AND supply_demand_country_hourly_fact.utc_date_sid <=> t.utc_date_sid
+          AND supply_demand_country_hourly_fact.utc_hour_sid <=> t.utc_hour_sid
+          AND supply_demand_country_hourly_fact.instance_timestamp <=> t.instance_timestamp
+          AND supply_demand_country_hourly_fact.advt_timestamp <=> t.advt_timestamp
+          AND supply_demand_country_hourly_fact.a_platform_id <=> t.a_platform_id
+          AND supply_demand_country_hourly_fact.p_platform_id <=> t.p_platform_id
+          AND supply_demand_country_hourly_fact.publisher_account_nk <=> t.publisher_account_nk
+          AND supply_demand_country_hourly_fact.site_nk <=> t.site_nk
+          AND supply_demand_country_hourly_fact.site_section_nk <=> t.site_section_nk
+          AND supply_demand_country_hourly_fact.page_nk <=> t.page_nk
+          AND supply_demand_country_hourly_fact.ad_unit_nk <=> t.ad_unit_nk
+          AND supply_demand_country_hourly_fact.rev_split <=> t.rev_split
+          AND supply_demand_country_hourly_fact.deal_type_uid <=> t.deal_type_uid
+          AND supply_demand_country_hourly_fact.deal_cpm <=> t.deal_cpm
+          AND supply_demand_country_hourly_fact.rev_share_enabled <=> t.rev_share_enabled
+          AND supply_demand_country_hourly_fact.package_nk <=> t.package_nk
+          AND supply_demand_country_hourly_fact.deal_nk <=> t.deal_nk
+          AND supply_demand_country_hourly_fact.advertiser_account_nk <=> t.advertiser_account_nk
+          AND supply_demand_country_hourly_fact.order_nk <=> t.order_nk
+          AND supply_demand_country_hourly_fact.line_item_nk <=> t.line_item_nk
+          AND supply_demand_country_hourly_fact.ad_nk <=> t.ad_nk
+          AND supply_demand_country_hourly_fact.line_item_pricing_model_code <=> t.line_item_pricing_model_code
+          AND supply_demand_country_hourly_fact.line_item_pricing_rate <=> t.line_item_pricing_rate
+          AND supply_demand_country_hourly_fact.brand_nk <=> t.brand_nk
+          AND supply_demand_country_hourly_fact.delivery_medium_code <=> t.delivery_medium_code
+          AND supply_demand_country_hourly_fact.screen_location_code <=> t.screen_location_code
+          AND supply_demand_country_hourly_fact.content_topic_group_sid <=> t.content_topic_group_sid
+          AND supply_demand_country_hourly_fact.sales_channel_code <=> t.sales_channel_code
+          AND supply_demand_country_hourly_fact.p_currency_code <=> t.p_currency_code
+          AND supply_demand_country_hourly_fact.a_currency_code <=> t.a_currency_code
+          AND supply_demand_country_hourly_fact.country_code <=> t.country_code
+          AND supply_demand_country_hourly_fact.ad_width <=> t.ad_width
+          AND supply_demand_country_hourly_fact.ad_height <=> t.ad_height
+          AND supply_demand_country_hourly_fact.ad_duration <=> t.ad_duration
+          AND supply_demand_country_hourly_fact.ssp_elig <=> t.ssp_elig
+          AND supply_demand_country_hourly_fact.p_req_deliv_medium <=> t.p_req_deliv_medium
+          AND supply_demand_country_hourly_fact.u_can_cookie <=> t.u_can_cookie
+          AND supply_demand_country_hourly_fact.p_mapped_adunit_type <=> t.p_mapped_adunit_type
+          AND supply_demand_country_hourly_fact.u_mobl_dev_cat <=> t.u_mobl_dev_cat
+          AND supply_demand_country_hourly_fact.is_mobile_app <=> t.is_mobile_app
+          AND supply_demand_country_hourly_fact.utc_date_sid between ?(START_UTC_DATE_SID)? and ?(END_UTC_DATE_SID)?"
+
+
+INSERT_CPD_DATA_CHANGE:
+  - "INSERT INTO data_change (table_name, utc_start_datetime, utc_end_datetime, process_name, utc_modified_datetime) 
+       SELECT 'supply_demand_geo_hourly_fact', m.start, m.end, 'daily_adjustment(cpd)', getutcdate()
+         FROM (select min(utc_timestamp) as start, max(utc_timestamp) as end, count(*) as cnt from tmp_demand_fact_new_cpd_spend) m 
+        WHERE m.cnt > 0"
+  - "INSERT INTO data_change (table_name, utc_start_datetime, utc_end_datetime, process_name, utc_modified_datetime) 
+       SELECT 'demand_hourly_fact', m.start, m.end, 'daily_adjustment(cpd)', getutcdate()
+         FROM (select min(utc_timestamp) as start, max(utc_timestamp) as end, count(*) as cnt from tmp_demand_fact_new_cpd_spend) m 
+        WHERE m.cnt > 0"
+  - "INSERT INTO data_change (table_name, utc_start_datetime, utc_end_datetime, process_name, utc_modified_datetime) 
+       SELECT 'supply_hourly_fact', m.start, m.end, 'daily_adjustment(cpd)', getutcdate()
+         FROM (select min(utc_timestamp) as start, max(utc_timestamp) as end, count(*) as cnt from tmp_supply_fact_new_cpd_revenue) m 
+        WHERE m.cnt > 0"
+
+INSERT_REVSHARE_DATA_CHANGE:
+  - "INSERT INTO data_change (table_name, utc_start_datetime, utc_end_datetime, process_name, utc_modified_datetime) 
+       SELECT 'supply_demand_geo_hourly_fact', m.start, m.end, 'daily_adjustment(revshare)', getutcdate()
+         FROM (select min(utc_timestamp) as start, max(utc_timestamp) as end, count(*) as cnt from tmp_supply_fact_new_revenue) m 
+        WHERE m.cnt > 0"
+  - "INSERT INTO data_change (table_name, utc_start_datetime, utc_end_datetime, process_name, utc_modified_datetime) 
+       SELECT 'supply_hourly_fact', m.start, m.end, 'daily_adjustment(revshare)', getutcdate()
+         FROM (select min(utc_timestamp) as start, max(utc_timestamp) as end, count(*) as cnt from tmp_supply_fact_new_revenue) m 
+        WHERE m.cnt > 0"
+
+LOAD_STATE_VAR: last_hour_daily_cpd_revshare_adjustment_completed
